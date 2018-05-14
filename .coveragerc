@@ -1,0 +1,6 @@
+[run]
+omit = .venv/*, migrations/*, apps.py/*, animal_shelter/wsgi.py
+
+[report]
+show_missing = true
+omit = .venv/*, core/migrations/*
