@@ -33,10 +33,10 @@ class Person(models.Model):
     EMAIL = models.EmailField(max_length=100, blank=True, null=True)
 
 class Foster(models.Model):
-    pet = models.ForeignKey('Pet',on_delete=models.CASCADE,)
-    person = models.ForeignKey('Person',on_delete=models.CASCADE)
+    Pet = models.ForeignKey('Pet',on_delete=models.CASCADE,)
+    Person = models.ForeignKey('Person',on_delete=models.CASCADE)
 
 
 class AdopterFamily(models.Model):
-    pet = models.ForeignKey('Pet',on_delete=models.CASCADE,)
-    person = models.ForeignKey('Person',on_delete=models.CASCADE)
+    Pet = models.ForeignKey('Pet',on_delete=models.CASCADE,)
+    Person = models.ForeignKey('Person',on_delete=models.CASCADE)
