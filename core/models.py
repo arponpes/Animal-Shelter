@@ -28,6 +28,9 @@ class Pet(models.Model):
                              max_length=10,
                              choices=STATE_CHOICES, default='Unavailable')
 
+    def __str__(self):
+        return f'{self.name} {self.pet_type}'
+
 
 class Person(models.Model):
     name = models.CharField('Nombre', max_length=50)
@@ -36,6 +39,8 @@ class Person(models.Model):
     address = models.CharField('Direccion', max_length=100)
     email = models.EmailField('Email', max_length=100, blank=True, null=True)
 
+    def __str__(self):
+        return f'{self.name}'
 
 class Foster(models.Model):
     pet = models.ForeignKey('Pet', on_delete=models.CASCADE,)
