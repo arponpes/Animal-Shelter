@@ -2,41 +2,47 @@ from django.db import models
 
 
 class Pet(models.Model):
-    name = models.CharField(max_length=50)
-    BIRTH_DATE = models.DateField()
-    ENTRY_DATE = models.DateField()
-    DAPARTURE_DATE = models.DateField(blank=True, null=True)
-    TYPE_CHOICES = (
-        ('DOG','Dog'),
+    name = models.CharField('Nombre', max_length=50)
+    birth_date = models.DateField('Fecha de nacimiento')
+    entry_date = models.DateField('Fecha de entrada')
+    departure_date = models.DateField('Fecha de salida', blank=True, null=True)
+    PET_TYPE_CHOICES = (
+        ('DOG', 'Dog'),
         ('CAT', 'Cat'),
     )
-    TYPE = models.CharField(max_length=10,choices=TYPE_CHOICES, default='DOG')
+    pet_type = models.CharField('Tipo',
+                                max_length=10,
+                                choices=PET_TYPE_CHOICES, default='DOG')
     SEX_CHOICES = (
         ('MALE', 'Male'),
         ('FEMALE', 'Female'),
     )
-    SEX = models.CharField(max_length=10, choices=SEX_CHOICES, default='MALE')
-    STATUS_CHOICES = (
+    sex = models.CharField('Sexo',
+                           max_length=10, choices=SEX_CHOICES, default='MALE')
+    STATE_CHOICES = (
         ('AVAILABLE', 'Available'),
         ('UNAVAILABLE', 'Unavailable'),
         ('URGENCY', 'Urgency')
     )
-    STATUS = models.CharField(
-        max_length=10, choices=STATUS_CHOICES, default='Unavailable')
+    state = models.CharField('Estado',
+                             max_length=10,
+                             choices=STATE_CHOICES, default='Unavailable')
 
 
 class Person(models.Model):
-    NAME = models.CharField(max_length=50)
-    LAST_NAME = models.CharField(max_length=70)
-    PHONE = models.CharField(max_length=12)
-    ADDRESS = models.CharField(max_length=100)
-    EMAIL = models.EmailField(max_length=100, blank=True, null=True)
+    name = models.CharField('Nombre', max_length=50)
+    last_name = models.CharField('Apellidos', max_length=70)
+    phone = models.CharField('Telefono', max_length=12)
+    address = models.CharField('Direccion', max_length=100)
+    email = models.EmailField('Email', max_length=100, blank=True, null=True)
+
 
 class Foster(models.Model):
-    Pet = models.ForeignKey('Pet',on_delete=models.CASCADE,)
-    Person = models.ForeignKey('Person',on_delete=models.CASCADE)
+    pet = models.ForeignKey('Pet', on_delete=models.CASCADE,)
+    person = models.ForeignKey('Person', on_delete=models.CASCADE)
 
 
 class AdopterFamily(models.Model):
-    Pet = models.ForeignKey('Pet',on_delete=models.CASCADE,)
-    Person = models.ForeignKey('Person',on_delete=models.CASCADE)
+    pet = models.ForeignKey('Pet', on_delete=models.CASCADE,)
+    person = models.ForeignKey('Person', on_delete=models.CASCADE)
+    
