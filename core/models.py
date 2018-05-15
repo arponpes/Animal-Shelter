@@ -1,18 +1,18 @@
 from django.db import models
 
 
-class Pet(models.Model):
+class Animal(models.Model):
     name = models.CharField('Nombre', max_length=50)
     birth_date = models.DateField('Fecha de nacimiento')
     entry_date = models.DateField('Fecha de entrada')
     departure_date = models.DateField('Fecha de salida', blank=True, null=True)
-    PET_TYPE_CHOICES = (
+    ANIMAL_TYPE_CHOICES = (
         ('DOG', 'Dog'),
         ('CAT', 'Cat'),
     )
-    pet_type = models.CharField('Tipo',
-                                max_length=10,
-                                choices=PET_TYPE_CHOICES, default='DOG')
+    animal_type = models.CharField('Tipo',
+                                   max_length=10,
+                                   choices=ANIMAL_TYPE_CHOICES, default='DOG')
     SEX_CHOICES = (
         ('MALE', 'Male'),
         ('FEMALE', 'Female'),
@@ -29,7 +29,7 @@ class Pet(models.Model):
                              choices=STATE_CHOICES, default='Unavailable')
 
     def __str__(self):
-        return f'{self.name} {self.pet_type}'
+        return f'{self.name} {self.animal_type}'
 
 
 class Person(models.Model):
@@ -42,12 +42,13 @@ class Person(models.Model):
     def __str__(self):
         return f'{self.name}'
 
+
 class Foster(models.Model):
-    pet = models.ForeignKey('Pet', on_delete=models.CASCADE,)
+    animal = models.ForeignKey('Animal', on_delete=models.CASCADE)
     person = models.ForeignKey('Person', on_delete=models.CASCADE)
 
 
 class AdopterFamily(models.Model):
-    pet = models.ForeignKey('Pet', on_delete=models.CASCADE,)
+    animal = models.ForeignKey('Animal', on_delete=models.CASCADE)
     person = models.ForeignKey('Person', on_delete=models.CASCADE)
     

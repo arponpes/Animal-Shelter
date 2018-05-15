@@ -1,26 +1,26 @@
 from django.contrib import admin
-from .models import Pet, Person, AdopterFamily, Foster
+from .models import Animal, Person, AdopterFamily, Foster
 
 
-class PetAdmin(admin.ModelAdmin):
-    list_diplay = ('NAME',
-                   'BIRTH_DATE',
-                   'ENTRY_DATE', 'DAPARTURE_DATE', 'SEX', 'TYPE', 'STATUS',)
+class AnimalAdmin(admin.ModelAdmin):
+    list_diplay = ('name',
+                   'birth_date',
+                   'entry_date', 'departure_date', 'sex', 'animal_type', 'state',)
 
 
 class PersonAdmin(admin.ModelAdmin):
-    list_diplay = ('NAME', 'LAST_NAME', 'EMAIL', 'ADDRESS', 'PHONE')
+    list_diplay = ('name', 'last_name', 'email', 'address', 'phone')
 
 
 class AdopterFamilyAdmin(admin.ModelAdmin):
-    list_display = ('pet', 'person')
+    list_display = ('animal', 'person')
 
 
 class FosterAdmin(admin.ModelAdmin):
-    list_display = ('pet', 'person')
+    list_display = ('animal', 'person')
 
 
-admin.site.register(Pet, PetAdmin)
+admin.site.register(Animal, AnimalAdmin)
 admin.site.register(Person, PersonAdmin)
 admin.site.register(AdopterFamily, AdopterFamilyAdmin)
 admin.site.register(Foster, FosterAdmin)
