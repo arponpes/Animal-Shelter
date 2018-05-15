@@ -2,28 +2,28 @@ from django.db import models
 
 
 class Animal(models.Model):
-    name = models.CharField('Nombre', max_length=50)
-    birth_date = models.DateField('Fecha de nacimiento')
-    entry_date = models.DateField('Fecha de entrada')
-    departure_date = models.DateField('Fecha de salida', blank=True, null=True)
     ANIMAL_TYPE_CHOICES = (
         ('DOG', 'Dog'),
         ('CAT', 'Cat'),
     )
-    animal_type = models.CharField('Tipo',
-                                   max_length=10,
-                                   choices=ANIMAL_TYPE_CHOICES, default='DOG')
     SEX_CHOICES = (
         ('MALE', 'Male'),
         ('FEMALE', 'Female'),
     )
-    sex = models.CharField('Sexo',
-                           max_length=10, choices=SEX_CHOICES, default='MALE')
     STATE_CHOICES = (
         ('AVAILABLE', 'Available'),
         ('UNAVAILABLE', 'Unavailable'),
         ('URGENCY', 'Urgency')
     )
+    name = models.CharField('Nombre', max_length=50)
+    birth_date = models.DateField('Fecha de nacimiento')
+    entry_date = models.DateField('Fecha de entrada')
+    departure_date = models.DateField('Fecha de salida', blank=True, null=True)
+    animal_type = models.CharField('Tipo',
+                                   max_length=10,
+                                   choices=ANIMAL_TYPE_CHOICES, default='DOG')
+    sex = models.CharField('Sexo',
+                           max_length=10, choices=SEX_CHOICES, default='MALE')
     state = models.CharField('Estado',
                              max_length=10,
                              choices=STATE_CHOICES, default='Unavailable')
