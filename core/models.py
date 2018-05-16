@@ -19,13 +19,14 @@ class Animal(models.Model):
     birth_date = models.DateField('Fecha de nacimiento')
     entry_date = models.DateField('Fecha de entrada')
     departure_date = models.DateField('Fecha de salida', blank=True, null=True)
+    description = models.TextField('Descripcion', blank=True, null=True)
     animal_type = models.CharField('Tipo',
-                                   max_length=10,
+                                   max_length=50,
                                    choices=ANIMAL_TYPE_CHOICES, default='DOG')
     sex = models.CharField('Sexo',
-                           max_length=10, choices=SEX_CHOICES, default='MALE')
+                           max_length=50, choices=SEX_CHOICES, default='MALE')
     state = models.CharField('Estado',
-                             max_length=10,
+                             max_length=50,
                              choices=STATE_CHOICES, default='UNAVAILABLE')
 
     def __str__(self):
