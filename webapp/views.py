@@ -12,3 +12,11 @@ class FrequentQuestionsView(TemplateView):
 
 class AboutUsView(TemplateView):
     template_name = 'webapp/about_us.html'
+
+
+class HelpView(TemplateView):
+    template_name = 'webapp/help.html'
+
+
+class ContactView(TemplateView):
+    template_name = 'webapp/contact.html'
