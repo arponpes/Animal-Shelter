@@ -1,7 +1,7 @@
-from django.shortcuts import render
 from django.views.generic import TemplateView
-from core.models import Animal
 from django.views.generic.list import ListView
+
+from core.models import Animal
 
 
 class HomeView(ListView):
