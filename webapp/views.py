@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
+from core.models import Animal
+from django.views.generic.list import ListView
 
 
-class HomeView(TemplateView):
+class HomeView(ListView):
+    model = Animal
     template_name = 'webapp/home.html'
 
 
