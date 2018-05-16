@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Animal, Person, AdopterFamily, Foster
+
+from .models import AdopterFamily, Animal, Foster, Person
 
 
 class AnimalAdmin(admin.ModelAdmin):
