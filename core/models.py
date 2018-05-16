@@ -26,7 +26,7 @@ class Animal(models.Model):
                            max_length=10, choices=SEX_CHOICES, default='MALE')
     state = models.CharField('Estado',
                              max_length=10,
-                             choices=STATE_CHOICES, default='Unavailable')
+                             choices=STATE_CHOICES, default='UNAVAILABLE')
 
     def __str__(self):
         return f'{self.name} {self.animal_type}'
@@ -51,4 +51,3 @@ class Foster(models.Model):
 class AdopterFamily(models.Model):
     animal = models.ForeignKey('Animal', on_delete=models.CASCADE)
     person = models.ForeignKey('Person', on_delete=models.CASCADE)
-    

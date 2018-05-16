@@ -1,6 +1,8 @@
-from .base import *
 import os
+
 import django_heroku
+
+from .base import *
 
 DEBUG = False
 SECRET_KEY = os.getenv('SECRET_KEY')

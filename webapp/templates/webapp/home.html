@@ -1,0 +1,7 @@
+{% extends 'webapp/base.html' %}
+{% block content %}
+{% include 'webapp/navbar.html' %}
+{% for animal in object_list %}
+  <p>{{animal.name}}</p>
+{% endfor %}
+{% endblock content %}
