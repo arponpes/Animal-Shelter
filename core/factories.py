@@ -1,6 +1,6 @@
 import factory
 from core import models
-from .models import Animal
+from .models import Animal, Person, Foster, AdopterFamily
 import factory.fuzzy
 
 animal_state = [state[0] for state in models.Animal.STATE_CHOICES]
@@ -20,6 +20,32 @@ class AnimalFactory(factory.django.DjangoModelFactory):
     sex = factory.fuzzy.FuzzyChoice(choices=animal_sex)
     state = factory.fuzzy.FuzzyChoice(choices=animal_state)
     description = factory.Faker('text')
+
+
+class PersonFactory(factory.django.DjangoModelFactory):
+
+    class Meta:
+        model = Person
     
+    name = factory.Faker('first_name')
+    last_name = factory.Faker('last_name')
+    phone = factory.Faker('phone_number')
+    address = factory.Faker('address')
 
     
+class FosterFactory(factory.django.DjangoModelFactory):
+
+    class Meta:
+        model = Foster
+
+    animal = factory.SubFactory(AnimalFactory)
+    person = factory.SubFactory(PersonFactory)
+
+
+class AdopterFamilyFactory(factory.django.DjangoModelFactory):
+
+    class Meta:
+        model = AdopterFamily
+
+    animal = factory.SubFactory(AnimalFactory)
+    person = factory.SubFactory(PersonFactory)

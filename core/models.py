@@ -36,7 +36,7 @@ class Animal(models.Model):
 class Person(models.Model):
     name = models.CharField('Nombre', max_length=50)
     last_name = models.CharField('Apellidos', max_length=70)
-    phone = models.CharField('Telefono', max_length=12)
+    phone = models.CharField('Telefono', max_length=20)
     address = models.CharField('Direccion', max_length=100)
     email = models.EmailField('Email', max_length=100, blank=True, null=True)
 
