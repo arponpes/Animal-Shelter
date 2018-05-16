@@ -1,5 +1,67 @@
 {% extends 'webapp/base.html' %}
 {% block content %}
 {% include 'webapp/navbar.html' %}
-<h1 class="title is-h1">Contacta!</h1>
+<div class="container">
+    <section class="section">
+        <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="Text input">
+                </div>
+              </div>
+              
+              <div class="field">
+                <label class="label">Email</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" type="email" placeholder="Email input" value="hola@">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-exclamation-triangle"></i>
+                  </span>
+                </div>
+                
+              </div>
+              
+              <div class="field">
+                <label class="label">Motivo</label>
+                <div class="control">
+                  <div class="select">
+                    <select>
+                      <option>Voluntariado</option>
+                      <option>Adoptar</option>
+                      <option>Dudas</option>
+                      <option>Donaciones</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="field">
+                <label class="label">Mensaje</label>
+                <div class="control">
+                  <textarea class="textarea" placeholder="Escríbeme!"></textarea>
+                </div>
+              </div>
+              
+              <div class="field">
+                <div class="control">
+                  <label class="checkbox">
+                    <input type="checkbox">
+                    I agree to the <a href="#">terms and conditions</a>
+                  </label>
+                </div>
+              </div>
+              
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-link">Enviar</button>
+                </div>
+                <div class="control">
+                  <button class="button is-text">Limpiar</button>
+                </div>
+              </div>
+            </section>
+</div>
 {% endblock content %}
