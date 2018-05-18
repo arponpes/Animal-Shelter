@@ -2,44 +2,52 @@
 
 <section class="section">
   <div class="container">
-
-
-
-
     <div class='columns is-multiline'>
-      {% for animal in object_list %}
+      {% for animal in animals %}
       <div class='column is-4'>
         <div class="card">
           <div class="card-image">
             <figure class="image is-4by3">
-              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+              <img src="https://loremflickr.com/300/240/dog?random={{animal.pk}}" alt="Placeholder image">
             </figure>
           </div>
           <div class="card-content">
 
             <div class="media-content">
-              <a class="title is-4">{{animal.name}}</a>
+              <a class="title is-4" href="{% url 'animal_detail' pk=animal.pk %}">{{animal.name}} {% if animal.state == 'AVAILABLE' %}
+                <span class="tag is-success">{{animal.state}}</span>
+                </h1>
+                {% else %}
+                <span class="tag is-danger">{{animal.state}}</span>
+                </h1>
+                {% endif %}
+              </a>
             </div>
             <div class="content">
               {{animal.description}}
               <br>
-              
-              
             </div>
             <p>Fecha nacimiento</p>
-              <time>{{animal.birth_date}}</time>
+            <time>{{animal.birth_date}}</time>
             <p>Fecha de llegada</p>
-              <time>{{animal.entry_date}}</time>
+            <time>{{animal.entry_date}}</time>
           </div>
         </div>
       </div>
-
-
-
       {% endfor %}
-
+      <nav class="pagination" role="navigation" aria-label="pagination">
+        <span class="step-links">
+          {% if animals.has_previous %}
+          <a class="pagination-link" href="?page=1"> Principio</a>
+          <a class="pagination-next" href="?page={{ animals.previous_page_number }}">{{ animals.previous_page_number }}</a>
+          {% endif %}
+          <a class="pagination-link is-current" aria-current="page">{{ animals.number }}</a>
+          {% if animals.has_next %}
+          <a class="pagination-next" href="?page={{ animals.next_page_number }}">{{ animals.next_page_number }}</a>
+          <a class="pagination-link" href="?page={{ animals.paginator.num_pages }}">Final</a>
+          {% endif %}
+        </span>
+      </nav>
     </div>
-
-
 </section>
 {% endblock content %}

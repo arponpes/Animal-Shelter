@@ -1,12 +1,16 @@
-from django.views.generic import TemplateView
-from django.views.generic.list import ListView
+from django.core.paginator import Paginator
+from django.shortcuts import render
+from django.views.generic import DetailView, TemplateView
 
 from core.models import Animal
 
 
-class HomeView(ListView):
-    model = Animal
-    template_name = 'webapp/home.html'
+def HomeView(request):
+    animal_list = Animal.objects.exclude(state='UNAVAILABLE').order_by('-state', '?')
+    paginator = Paginator(animal_list, 9)
+    page = request.GET.get('page')
+    animals = paginator.get_page(page)
+    return render(request, 'webapp/home.html', {'animals': animals})
 
 
 class FrequentQuestionsView(TemplateView):
@@ -23,3 +27,8 @@ class HelpView(TemplateView):
 
 class ContactView(TemplateView):
     template_name = 'webapp/contact.html'
+
+
+class AnimalDetail(DetailView):
+    model = Animal
+    template_name = 'webapp/animal_detail.html'

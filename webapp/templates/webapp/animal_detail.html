@@ -1,0 +1,35 @@
+{% extends 'webapp/base.html' %}
+{% block content %}
+{% include 'webapp/navbar.html' %}
+
+<section class="section">
+    <div class="container">
+    
+        <div class="columns">
+            <div class="column">
+                    <figure class="image is-4by3">
+                            <img src="https://loremflickr.com/300/240/dog" alt="Placeholder image">
+                          </figure>
+            </div>
+            <div class="column">
+                <h1 class="title">{{animal.name}}
+                    {% if animal.state == 'AVAILABLE' %}
+                    <span class="tag is-success">{{animal.state}}</span></h1>
+                    {% else %}
+                    <span class="tag is-danger">{{animal.state}}</span></h1>
+                    {% endif %}
+                    
+                    <h1 class="subtitle">Datos</h2>
+                <p> <strong> Fecha de nacimiento</strong></p>
+                <p>{{animal.birth_date}}</p>
+                <p> <strong> Fecha de entrada </strong></p>
+                <p>{{animal.entry_date}}</p>
+                <p> <strong>Descripcion</strong> </p>
+                {{animal.description}}
+            </div>
+        </div>
+    
+
+    </div>
+</section>
+{% endblock content %}
