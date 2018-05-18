@@ -15,10 +15,10 @@
 
             <div class="media-content">
               <a class="title is-4" href="{% url 'animal_detail' pk=animal.pk %}">{{animal.name}} {% if animal.state == 'AVAILABLE' %}
-                <span class="tag is-success">{{animal.state}}</span>
+                <span class="tag is-success">{{animal.get_state_display}}</span>
                 </h1>
                 {% else %}
-                <span class="tag is-danger">{{animal.state}}</span>
+                <span class="tag is-danger">{{animal.get_state_display}}</span>
                 </h1>
                 {% endif %}
               </a>

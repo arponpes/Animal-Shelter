@@ -11,9 +11,9 @@ class Animal(models.Model):
         ('FEMALE', 'Female'),
     )
     STATE_CHOICES = (
-        ('AVAILABLE', 'Available'),
-        ('UNAVAILABLE', 'Unavailable'),
-        ('URGENCY', 'Urgency')
+        ('AVAILABLE', 'Disponible'),
+        ('UNAVAILABLE', 'No Disponible'),
+        ('URGENCY', 'Urgente')
     )
     name = models.CharField('Nombre', max_length=50)
     birth_date = models.DateField('Fecha de nacimiento')
@@ -47,8 +47,17 @@ class Person(models.Model):
 class Foster(models.Model):
     animal = models.ForeignKey('Animal', on_delete=models.CASCADE)
     person = models.ForeignKey('Person', on_delete=models.CASCADE)
-
+    
 
 class AdopterFamily(models.Model):
     animal = models.ForeignKey('Animal', on_delete=models.CASCADE)
     person = models.ForeignKey('Person', on_delete=models.CASCADE)
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        save = super()
+        print(self.animal.state)
+        self.animal.state = 'UNAVAILABLE'
+        self.animal.save()
+        print(self.animal.state)
+        return save
