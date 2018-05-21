@@ -47,7 +47,7 @@ class Person(models.Model):
 class Foster(models.Model):
     animal = models.ForeignKey('Animal', on_delete=models.CASCADE)
     person = models.ForeignKey('Person', on_delete=models.CASCADE)
-    
+
 
 class AdopterFamily(models.Model):
     animal = models.ForeignKey('Animal', on_delete=models.CASCADE)
@@ -55,9 +55,6 @@ class AdopterFamily(models.Model):
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
-        save = super()
-        print(self.animal.state)
+        super()
         self.animal.state = 'UNAVAILABLE'
         self.animal.save()
-        print(self.animal.state)
-        return save

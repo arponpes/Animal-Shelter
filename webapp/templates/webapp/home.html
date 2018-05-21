@@ -35,19 +35,44 @@
         </div>
       </div>
       {% endfor %}
-      <nav class="pagination" role="navigation" aria-label="pagination">
-        <span class="step-links">
-          {% if animals.has_previous %}
-          <a class="pagination-link" href="?page=1"> Principio</a>
-          <a class="pagination-next" href="?page={{ animals.previous_page_number }}">{{ animals.previous_page_number }}</a>
-          {% endif %}
-          <a class="pagination-link is-current" aria-current="page">{{ animals.number }}</a>
-          {% if animals.has_next %}
-          <a class="pagination-next" href="?page={{ animals.next_page_number }}">{{ animals.next_page_number }}</a>
-          <a class="pagination-link" href="?page={{ animals.paginator.num_pages }}">Final</a>
-          {% endif %}
-        </span>
-      </nav>
+
     </div>
+    <nav class="pagination" role="navigation" aria-label="pagination">
+      <span class="step-links">
+        {% if animals.has_previous %}
+        <a class="pagination-next" href="?page={{ 1 }}">
+          <i class="fas fa-angle-double-left"></i>
+        </a>
+        <a class="pagination-next" href="?page={{ animals.previous_page_number }}">
+          <i class="fas fa-angle-left"></i>
+        </a>
+        {% else %}
+        <a class="pagination-next" title="Disabled button" disabled>
+          <i class="fas fa-angle-double-left"></i>
+        </a>
+        <a class="pagination-next" title="Disabled button" disabled>
+          <i class="fas fa-chevron-left"></i>
+        </a>
+        {% endif %}
+        <span class="current">
+          {{ animals.number }} de {{ animals.paginator.num_pages }}.
+        </span>
+        {% if animals.has_next %}
+        <a class="pagination-next" href="?page={{ animals.next_page_number }}">
+          <i class="fas fa-angle-right"></i>
+        </a>
+        <a class="pagination-next" href="?page={{ animals.paginator.num_pages }}">
+          <i class="fas fa-angle-double-right"></i>
+        </a>
+        {% else %}
+        <a class="pagination-next" title="Disabled button" disabled>
+          <i class="fas fa-angle-right"></i>
+        </a>
+        <a class="pagination-next" title="Disabled button" disabled>
+          <i class="fas fa-angle-double-right"></i>
+        </a>
+        {% endif %}
+      </span>
+    </nav>
 </section>
 {% endblock content %}
