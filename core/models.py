@@ -7,8 +7,8 @@ class Animal(models.Model):
         ('CAT', 'Cat'),
     )
     SEX_CHOICES = (
-        ('MALE', 'Male'),
-        ('FEMALE', 'Female'),
+        ('MALE', 'Macho'),
+        ('FEMALE', 'Hembra'),
     )
     STATE_CHOICES = (
         ('AVAILABLE', 'Disponible'),

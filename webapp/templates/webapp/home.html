@@ -2,7 +2,18 @@
 
 <section class="section">
   <div class="container">
-    <div class='columns is-multiline'>
+      <form action="" method="get">
+        <div class="columns">
+          <div class="column is-4 filter">
+          {% include 'filter/filter.html' with field=filter.form.fields.sex name='sex' title='Sexo' %}
+          </div>
+          <div class="column is-4 filter">
+          {% include 'filter/filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' %}
+        </div>
+      </div>
+          <input type="submit" value="Encuentrame" class="button is-primary"/>
+      </form>
+    <div class='columns is-multiline'>  
       {% for animal in animals %}
       <div class='column is-4'>
         <div class="card">
@@ -37,42 +48,6 @@
       {% endfor %}
 
     </div>
-    <nav class="pagination" role="navigation" aria-label="pagination">
-      <span class="step-links">
-        {% if animals.has_previous %}
-        <a class="pagination-next" href="?page={{ 1 }}">
-          <i class="fas fa-angle-double-left"></i>
-        </a>
-        <a class="pagination-next" href="?page={{ animals.previous_page_number }}">
-          <i class="fas fa-angle-left"></i>
-        </a>
-        {% else %}
-        <a class="pagination-next" title="Disabled button" disabled>
-          <i class="fas fa-angle-double-left"></i>
-        </a>
-        <a class="pagination-next" title="Disabled button" disabled>
-          <i class="fas fa-chevron-left"></i>
-        </a>
-        {% endif %}
-        <span class="current">
-          {{ animals.number }} de {{ animals.paginator.num_pages }}.
-        </span>
-        {% if animals.has_next %}
-        <a class="pagination-next" href="?page={{ animals.next_page_number }}">
-          <i class="fas fa-angle-right"></i>
-        </a>
-        <a class="pagination-next" href="?page={{ animals.paginator.num_pages }}">
-          <i class="fas fa-angle-double-right"></i>
-        </a>
-        {% else %}
-        <a class="pagination-next" title="Disabled button" disabled>
-          <i class="fas fa-angle-right"></i>
-        </a>
-        <a class="pagination-next" title="Disabled button" disabled>
-          <i class="fas fa-angle-double-right"></i>
-        </a>
-        {% endif %}
-      </span>
-    </nav>
+    {% include 'webapp/_pagination.html' %}
 </section>
 {% endblock content %}
