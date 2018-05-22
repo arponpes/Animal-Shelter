@@ -1,0 +1,37 @@
+<nav class="pagination" role="navigation" aria-label="pagination">
+      <span class="step-links">
+        {% if page_obj.has_previous %}
+        <a class="pagination-next" href="?page={{ 1 }}&{{query_get_string}}">
+          <i class="fas fa-angle-double-left"></i>
+        </a>
+        <a class="pagination-next" href="?page={{ page_obj.previous_page_number }}&{{query_get_string}}">
+          <i class="fas fa-angle-left"></i>
+        </a>
+        {% else %}
+        <a class="pagination-next" title="Disabled button" disabled>
+          <i class="fas fa-angle-double-left"></i>
+        </a>
+        <a class="pagination-next" title="Disabled button" disabled>
+          <i class="fas fa-chevron-left"></i>
+        </a>
+        {% endif %}
+        <span class="current">
+          {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+        </span>
+        {% if page_obj.has_next %}
+        <a class="pagination-next" href="?page={{ page_obj.next_page_number }}&{{query_get_string}}">
+          <i class="fas fa-angle-right"></i>
+        </a>
+        <a class="pagination-next" href="?page={{ page_obj.paginator.num_pages }}&{{query_get_string}}">
+          <i class="fas fa-angle-double-right"></i>
+        </a>
+        {% else %}
+        <a class="pagination-next" title="Disabled button" disabled>
+          <i class="fas fa-angle-right"></i>
+        </a>
+        <a class="pagination-next" title="Disabled button" disabled>
+          <i class="fas fa-angle-double-right"></i>
+        </a>
+        {% endif %}
+      </span>
+    </nav>

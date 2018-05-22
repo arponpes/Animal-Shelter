@@ -10,6 +10,7 @@ psycopg2-binary = "*"
 requests = "*"
 django-heroku = "*"
 django-debug-toolbar = "*"
+django-filter = "*"
 
 [dev-packages]
 coverage = "*"

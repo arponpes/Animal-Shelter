@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'webapp',
+    'django_filters',
     'debug_toolbar',
 ]
 

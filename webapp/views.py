@@ -1,16 +1,25 @@
-from django.core.paginator import Paginator
-from django.shortcuts import render
 from django.views.generic import DetailView, TemplateView
 
 from core.models import Animal
+from django_filters.views import FilterView
+from core import filters
 
 
-def HomeView(request):
-    animal_list = Animal.objects.exclude(state='UNAVAILABLE').order_by('-state', '?')
-    paginator = Paginator(animal_list, 9)
-    page = request.GET.get('page')
-    animals = paginator.get_page(page)
-    return render(request, 'webapp/home.html', {'animals': animals})
+class HomeView(FilterView):
+    model = Animal
+    template_name = 'webapp/home.html'
+    paginate_by = 9
+    queryset = Animal.objects.exclude(state='UNAVAILABLE').order_by('-state', 'entry_date')
+    filterset_class = filters.AnimalFilter
+    context_object_name = 'animals'
+
+    def get_context_data(self, *args, **kwargs):
+        data = super().get_context_data(*args, **kwargs)
+        aux = self.request.GET.copy()
+        if aux.get('page'):
+            aux.pop('page')
+        data['query_get_string'] = aux.urlencode()
+        return data
 
 
 class FrequentQuestionsView(TemplateView):
