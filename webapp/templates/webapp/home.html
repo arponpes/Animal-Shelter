@@ -15,25 +15,25 @@
   <div class="container">
     <form action="{% url 'animals' %}" method="get">
       <h1 class="title is-1 center">
-          Encuéntrame
+        Encuéntrame
       </h1>
       <div class="columns">
         <div class="column is-4 filter">
           {% include 'filter/filter.html' with field=filter.form.fields.sex name='sex' title='Sexo' selected=request.GET.sex %}
         </div>
         <div class="column is-4 filter">
-          {% include 'filter/filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type %}
+          {% include 'filter/filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type%}
         </div>
       </div>
-      <input type="submit" id="form" value="Filtrar" class="button is-primary is-rounded is-medium"/>
+      <input type="submit" id="form" value="Filtrar" class="button is-primary is-rounded is-medium" />
     </form>
-    
+
     <h1 class="title is-1 center">
       Urge adopción o acogida
     </h1>
     <div class='columns is-multiline'>
       {% for animal in animals %}
-      <div class='column is-4'>
+      <div class='column is-4-desktop is-half-tablet'>
         <div class="card">
           <div class="card-image">
             <figure class="image is-4by3">
@@ -42,27 +42,53 @@
           </div>
           <div class="card-content">
             <div class="media-content">
-              <a class="title is-4" href="{% url 'animal_detail' pk=animal.pk %}">{{animal.name}} {% if animal.state == 'AVAILABLE' %}
-                <span class="tag is-success">{{animal.get_state_display}}</span>
-                </h1>
-                {% else %}
+              <a class="title is-4" href="{% url 'animal_detail' pk=animal.pk %}">
+                {{animal.name}} {% if animal.state == 'URGENCY' %}
                 <span class="tag is-danger">{{animal.get_state_display}}</span>
-                </h1>
                 {% endif %}
               </a>
             </div>
             <div class="content">
-              {{animal.description}}
-              <br>
+              <p>{{animal.description|truncatechars_html:175 }}</p>
             </div>
-            <p>Fecha nacimiento</p>
-            <time>{{animal.birth_date}}</time>
-            <p>Fecha de llegada</p>
-            <time>{{animal.entry_date}}</time>
+            <div class="columns">
+              <div class="column is-half is-half-mobile">
+                <Strong>
+                  <label>Animal:</label>
+                </Strong>
+                {{animal.get_animal_type_display}}
+                <br>
+                <Strong>
+                  <label>Sexo:</label>
+                </Strong>
+                {{animal.get_sex_display}}
+                <br>
+                  <Strong>
+                  <label>Tamaño:</label>
+                  </Strong>
+                  Grande
+                <br>
+                <br>
+                
+              </div>
+              <div class="column is-half is-half-mobile">
+                <strong>
+                  <p>Fecha nacimiento</p>
+                </strong>
+                <time>{{animal.birth_date}}</time>
+                <strong>
+                  <p>Fecha de llegada</p>
+                </strong>
+                <time>{{animal.entry_date}}</time>
+              </div>
+             
+            </div>
+            <a class="button is-primary is-rounded" href="{% url 'animal_detail' pk=animal.pk %}">Conóceme!</a>
           </div>
         </div>
       </div>
       {% endfor %}
     </div>
+  </div>
 </section>
 {% endblock content %}

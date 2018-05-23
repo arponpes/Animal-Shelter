@@ -18,37 +18,59 @@
     </form>
     <div class='columns is-multiline'>
       {% for animal in animals %}
-      <div class='column is-4'>
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="https://loremflickr.com/300/240/dog?random={{animal.pk}}" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media-content">
-              <a class="title is-4" href="{% url 'animal_detail' pk=animal.pk %}">{{animal.name}} {% if animal.state == 'AVAILABLE' %}
-                <span class="tag is-success">{{animal.get_state_display}}</span>
-                </h1>
-                {% else %}
-                <span class="tag is-danger">{{animal.get_state_display}}</span>
-                </h1>
-                {% endif %}
-              </a>
+      <div class='column is-4-desktop is-half-tablet'>
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://loremflickr.com/300/240/dog?random={{animal.pk}}" alt="Placeholder image">
+              </figure>
             </div>
-            <div class="content">
-              {{animal.description}}
-              <br>
+            <div class="card-content">
+              <div class="media-content">
+                <a class="title is-4" href="{% url 'animal_detail' pk=animal.pk %}">
+                  {{animal.name}} {% if animal.state == 'URGENCY' %}
+                  <span class="tag is-danger">{{animal.get_state_display}}</span>
+                  {% endif %}
+                </a>
+              </div>
+              <div class="content">
+                  <p>{{animal.description|truncatechars_html:175 }}</p>
+              </div>
+              <div class="columns">
+                <div class="column is-half card-down">
+                  <Strong>
+                    <label>Animal:</label>
+                  </Strong>
+                  {{animal.get_animal_type_display}}
+                  <br>
+                  <Strong>
+                    <label>Sexo:</label>
+                  </Strong>
+                  {{animal.get_sex_display}}
+                  <br>
+                  <Strong>
+                  <label>Tamaño:</label>
+                  </Strong>
+                  Grande
+                  <br>
+                  <a class="button is-primary is-rounded" href="{% url 'animal_detail' pk=animal.pk %}">Conóceme!</a>
+                </div>
+                <div class="column is-half">
+                  <strong>
+                    <p>Fecha nacimiento</p>
+                  </strong>
+                  <time>{{animal.birth_date}}</time>
+                  <strong>
+                    <p>Fecha de llegada</p>
+                  </strong>
+                  <time>{{animal.entry_date}}</time>
+                </div>
+              </div>
             </div>
-            <p>Fecha nacimiento</p>
-            <time>{{animal.birth_date}}</time>
-            <p>Fecha de llegada</p>
-            <time>{{animal.entry_date}}</time>
           </div>
         </div>
-      </div>
       {% endfor %}
-
+    
     </div>
     {% include 'webapp/_pagination.html' %}
 </section>
