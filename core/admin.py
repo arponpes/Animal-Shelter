@@ -4,8 +4,8 @@ from .models import AdopterFamily, Animal, Foster, Person
 
 
 class AnimalAdmin(admin.ModelAdmin):
-    list_filter = ('animal_type', 'sex', 'state')
-    list_display = ('name', 'animal_type', 'sex', 'state')
+    list_filter = ('animal_type', 'sex', 'state', 'size')
+    list_display = ('name', 'animal_type', 'sex', 'state', 'size')
     search_fields = ('name',)
 
 
