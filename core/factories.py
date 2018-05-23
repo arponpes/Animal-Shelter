@@ -8,6 +8,7 @@ from .models import AdopterFamily, Animal, Foster, Person
 animal_state = [state[0] for state in models.Animal.STATE_CHOICES]
 animal_sex = [sex[0] for sex in models.Animal.SEX_CHOICES]
 animal_type = [type[0] for type in models.Animal.ANIMAL_TYPE_CHOICES]
+animal_size = [size[0] for size in models.Animal.SIZE_CHOICES]
 
 
 class AnimalFactory(factory.django.DjangoModelFactory):
@@ -20,6 +21,7 @@ class AnimalFactory(factory.django.DjangoModelFactory):
     animal_type = factory.fuzzy.FuzzyChoice(choices=animal_type)
     sex = factory.fuzzy.FuzzyChoice(choices=animal_sex)
     state = factory.fuzzy.FuzzyChoice(choices=animal_state)
+    size = factory.fuzzy.FuzzyChoice(choices=animal_size)
     description = factory.Faker('text')
 
 

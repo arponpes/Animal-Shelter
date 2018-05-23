@@ -51,7 +51,7 @@
                   <Strong>
                   <label>Tamaño:</label>
                   </Strong>
-                  Grande
+                  {{animal.get_size_display}}
                   <br>
                   <a class="button is-primary is-rounded" href="{% url 'animal_detail' pk=animal.pk %}">Conóceme!</a>
                 </div>

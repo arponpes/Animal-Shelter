@@ -15,11 +15,19 @@ class Animal(models.Model):
         ('UNAVAILABLE', 'No Disponible'),
         ('URGENCY', 'Urgente')
     )
+    SIZE_CHOICES = (
+        ('BIG', 'Grande'),
+        ('MEDIUM', 'Mediano'),
+        ('LITTLE', 'Pequeño'),
+    )
     name = models.CharField('Nombre', max_length=50)
     birth_date = models.DateField('Fecha de nacimiento')
     entry_date = models.DateField('Fecha de entrada')
     departure_date = models.DateField('Fecha de salida', blank=True, null=True)
     description = models.TextField('Descripcion', blank=True, null=True)
+    size = models.CharField('Tamaño',
+                            max_length=50,
+                            choices=SIZE_CHOICES, default='MEDIUM')
     animal_type = models.CharField('Tipo',
                                    max_length=50,
                                    choices=ANIMAL_TYPE_CHOICES, default='DOG')
