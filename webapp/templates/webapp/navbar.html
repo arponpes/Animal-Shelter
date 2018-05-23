@@ -1,7 +1,7 @@
-<nav class="navbar is-info is-fixed-top">
+<nav class="navbar is-light is-fixed-top">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+    <a class="navbar-item" href="{% url 'home' %}">
+       <p class="logo">Animal Shelter</p>
     </a>
     <div class="navbar-burger burger" data-target="navbar_content">
       <span></span>
@@ -12,11 +12,12 @@
 
   <div class="navbar-menu" id="navbar_content">
     <div class="navbar-start">
-      <a class="navbar-item" id="home" href="{% url 'Home' %}">Inicio</a>
-      <a class="navbar-item" id="frequentQuestions" href="{% url 'FrequentQuestions' %}">Preguntas Frecuentes</a>
-      <a class="navbar-item" id="aboutUs" href="{% url 'AboutUs' %}">Quienes somos</a>
-      <a class="navbar-item" id="help" href="{% url 'Help' %}">Ayudanos!</a>
-      <a class="navbar-item" id="contact" href="{% url 'Contact' %}">Contacto</a>
+      <a class="navbar-item" id="home" href="{% url 'home' %}">Inicio</a>
+      <a class="navbar-item" id="animals" href="{% url 'animals' %}">Animales</a>
+      <a class="navbar-item" id="frequentQuestions" href="{% url 'frequentQuestions' %}">Preguntas Frecuentes</a>
+      <a class="navbar-item" id="aboutUs" href="{% url 'aboutUs' %}">Quienes somos</a>
+      <a class="navbar-item" id="help" href="{% url 'help' %}">Ayudanos!</a>
+      <a class="navbar-item" id="contact" href="{% url 'contact' %}">Contacto</a>
     </div>
   </div>
 </nav>

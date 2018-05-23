@@ -2,6 +2,13 @@
     margin-top: 1em;
 }
 
-.filter{
-    flex-direction: column;
+.logo{
+    font-family: 'Luckiest Guy', cursive;
+}
+.navbar{
+    height: 3.5rem;
+}
+
+.center{
+    text-align: center;
 }

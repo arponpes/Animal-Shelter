@@ -8,6 +8,14 @@ from core import filters
 class HomeView(FilterView):
     model = Animal
     template_name = 'webapp/home.html'
+    queryset = Animal.objects.filter(state='URGENCY').order_by('-state', 'entry_date')
+    filterset_class = filters.AnimalFilter
+    context_object_name = 'animals'
+    
+
+class AnimalsView(FilterView):
+    model = Animal
+    template_name = 'webapp/animals.html'
     paginate_by = 9
     queryset = Animal.objects.exclude(state='UNAVAILABLE').order_by('-state', 'entry_date')
     filterset_class = filters.AnimalFilter
