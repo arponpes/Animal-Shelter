@@ -1,22 +1,12 @@
 {% extends 'webapp/base.html' %} {% block content %} {% include 'webapp/navbar.html' %}
-<section class="hero is-medium is-danger is-bold frase">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        “Hasta que no hayas amado a un animal, parte de tu alma estará dormida”.
-      </h1>
-      <h2 class="subtitle">
-        Anatole France.
-      </h2>
-    </div>
-  </div>
-</section>
+
 <section class="section">
   <div class="container">
-    <form action="{% url 'animals' %}" method="get">
+    <form action="" method="get">
       <h1 class="title is-1 center">
-          Encuéntrame
+        Encuéntrame
       </h1>
+      <input type="submit" value="Filtrar" id="form" class="button is-primary" />
       <div class="columns">
         <div class="column is-4 filter">
           {% include 'filter/filter.html' with field=filter.form.fields.sex name='sex' title='Sexo' selected=request.GET.sex %}
@@ -25,12 +15,7 @@
           {% include 'filter/filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type %}
         </div>
       </div>
-      <input type="submit" id="form" value="Filtrar" class="button is-primary is-rounded is-medium"/>
     </form>
-    
-    <h1 class="title is-1 center">
-      Urge adopción o acogida
-    </h1>
     <div class='columns is-multiline'>
       {% for animal in animals %}
       <div class='column is-4'>
@@ -63,6 +48,8 @@
         </div>
       </div>
       {% endfor %}
+
     </div>
+    {% include 'webapp/_pagination.html' %}
 </section>
 {% endblock content %}

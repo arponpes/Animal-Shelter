@@ -3,8 +3,8 @@ from django.db import models
 
 class Animal(models.Model):
     ANIMAL_TYPE_CHOICES = (
-        ('DOG', 'Dog'),
-        ('CAT', 'Cat'),
+        ('DOG', 'Perro'),
+        ('CAT', 'Gato'),
     )
     SEX_CHOICES = (
         ('MALE', 'Macho'),

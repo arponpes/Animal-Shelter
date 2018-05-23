@@ -17,6 +17,12 @@ def browser(request):
 @pytest.mark.django_db
 def test_login(browser, live_server):
     browser.get(live_server.url)
+    browser.find_element_by_id('sex').click()
+    browser.find_element_by_id('animal_type').click()
+    browser.find_element_by_id('form').submit()
+    browser.find_element_by_id('sex').click()
+    browser.find_element_by_id('animal_type').click()
+    browser.find_element_by_id('form').click()
     browser.find_element_by_id('frequentQuestions').click()
     browser.find_element_by_id('aboutUs').click()
     browser.find_element_by_id('help').click()

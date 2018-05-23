@@ -1,18 +1,14 @@
-<div class="container">
-    <section class="section">
-        <div class="control">
-            <dl>
-                <dt>
-                    <h1 class="title">{{title}}</h1>
-                </dt>
-                {% for x,y in field.widget.choices %}
-                <dt>
-                    <label class="radio">
-                        <input type="radio" id="{{name}}" name="{{name}}" value="{{ x }}" {% if form.field.value %} selected {% endif %}> {{ y }}
-                    </label>
-                </dt>
-                {% endfor %}
-            </dl>
-        </div>
-    </section>
+<div class="control">
+    <dl>
+        <dt>
+            <h1 class="title">{{title}}</h1>
+        </dt>
+        {% for key,value in field.widget.choices %}
+        <dt>
+            <label class="radio">
+                <input type="radio" id="{{name}}" name="{{name}}" value="{{ key }}" {% if key == selected %} checked {% endif %}> {{ value }}
+            </label>
+        </dt>
+        {% endfor %}
+    </dl>
 </div>
