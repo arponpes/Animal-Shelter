@@ -8,16 +8,16 @@
       </h1>
       <input type="submit" value="Filtrar" id="form" class="button is-primary" />
       <div class="columns">
-        <div class="column is-4 filter">
-          {% include 'filter/filter.html' with field=filter.form.fields.sex name='sex' title='Sexo' selected=request.GET.sex %}
+          <div class="column is-4 filter">
+            {% include 'filter/filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type%}
+          </div>
+          <div class="column is-4 filter">
+              {% include 'filter/filter.html' with field=filter.form.fields.sex name='sex' title='Sexo' selected=request.GET.sex %}
+            </div>
+          <div class="column is-4 filter">
+            {% include 'filter/filter.html' with field=filter.form.fields.size name='size' title='Tamaño' selected=request.GET.size%}
+          </div>
         </div>
-        <div class="column is-4 filter">
-          {% include 'filter/filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type %}
-        </div>
-        <div class="column is-4 filter">
-          {% include 'filter/filter.html' with field=filter.form.fields.size name='size' title='size' selected=request.GET.size%}
-        </div>
-      </div>
     </form>
     <div class='columns is-multiline'>
       {% for animal in animals %}
@@ -25,7 +25,13 @@
           <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
+                {% if animal.image %}
+                <img src="{{ animal.image.url }}" />
+                
+                {% else %}
                 <img src="https://loremflickr.com/300/240/dog?random={{animal.pk}}" alt="Placeholder image">
+                {% endif %}
+                
               </figure>
             </div>
             <div class="card-content">
@@ -73,7 +79,6 @@
           </div>
         </div>
       {% endfor %}
-    
     </div>
     {% include 'webapp/_pagination.html' %}
 </section>

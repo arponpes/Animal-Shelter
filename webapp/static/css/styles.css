@@ -22,11 +22,20 @@
     font-size: 1.5em;
     color: black;
 }
-
+.error-icon{
+    font-size: 4rem;
+    color: black;
+}
 .dates {
     border-left: 1px solid;
 }
 
 .card {
     /* height: 41rem; */
+}
+.eror404title{
+font-size: 5rem;
+}
+.eror404subtitle{
+    font-size: 1.5rem;
 }

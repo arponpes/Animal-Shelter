@@ -1,0 +1,25 @@
+{% extends 'webapp/base.html' %} {% block content %}
+<div class="container">
+    <div class="columns">
+        <div class="column is-half">
+            <section class="section">
+                <h1 class="title eror404title">
+                    Yo soy tu 404
+                </h1>
+                <p class="eror404subtitle">
+                    Puedes volver a intentarlo mas tarde, si el error continua puedes ponte en contacto con nosotros.
+                </p>
+                <div class="center " >
+                    <a class="is-disabled error-icon " href="{% url 'home' %}">
+                <i class="fas fa-undo-alt "></i>
+            </a>
+            </div>
+            </section>
+        </div>
+        <div class="column is-half">
+            <img class="image" src="https://c1.staticflickr.com/9/8187/8126557438_113558fc5a_b.jpg" alt="">
+        </div>
+
+    </div>
+</div>
+{% endblock content %}

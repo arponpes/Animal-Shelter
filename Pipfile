@@ -11,6 +11,7 @@ requests = "*"
 django-heroku = "*"
 django-debug-toolbar = "*"
 django-filter = "*"
+django-versatileimagefield = "*"
 
 [dev-packages]
 coverage = "*"
