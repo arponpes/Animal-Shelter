@@ -1,85 +1,81 @@
-{% extends 'webapp/base.html' %} {% block content %} {% include 'webapp/navbar.html' %}
+{% extends 'webapp/base.html' %}{% load static from staticfiles %} {% block content %} {% include 'webapp/navbar.html' %}
 
 <section class="section">
   <div class="container">
-    <form action="" method="get">
+    <form action="" id="form" method="get">
       <h1 class="title is-1 center">
         Encuéntrame
       </h1>
-      <input type="submit" value="Filtrar" id="form" class="button is-primary" />
       <div class="columns">
-          <div class="column is-4 filter">
-            {% include 'filter/filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type%}
-          </div>
-          <div class="column is-4 filter">
-              {% include 'filter/filter.html' with field=filter.form.fields.sex name='sex' title='Sexo' selected=request.GET.sex %}
-            </div>
-          <div class="column is-4 filter">
-            {% include 'filter/filter.html' with field=filter.form.fields.size name='size' title='Tamaño' selected=request.GET.size%}
-          </div>
+        <div class="column is-4 filter">
+          {% include 'filter/filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type%}
         </div>
+        <div class="column is-4 filter">
+          {% include 'filter/filter.html' with field=filter.form.fields.sex name='sex' title='Sexo' selected=request.GET.sex %}
+        </div>
+        <div class="column is-4 filter">
+          {% include 'filter/filter.html' with field=filter.form.fields.size name='size' title='Tamaño' selected=request.GET.size%}
+        </div>
+      </div>
     </form>
     <div class='columns is-multiline'>
       {% for animal in animals %}
       <div class='column is-4-desktop is-half-tablet'>
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                {% if animal.image %}
-                <img src="{{ animal.image.url }}" />
-                
-                {% else %}
-                <img src="https://loremflickr.com/300/240/dog?random={{animal.pk}}" alt="Placeholder image">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              {% if animal.image %}
+              <img src="{{ animal.image.url }}" /> {% else %}
+              <img src="https://loremflickr.com/300/240/dog?random={{animal.pk}}" alt="Placeholder image"> {% endif %}
+
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media-content">
+              <a class="title is-4" href="{% url 'animal_detail' pk=animal.pk %}">
+                {{animal.name}} {% if animal.state == 'URGENCY' %}
+                <span class="tag is-danger">{{animal.get_state_display}}</span>
                 {% endif %}
-                
-              </figure>
+              </a>
             </div>
-            <div class="card-content">
-              <div class="media-content">
-                <a class="title is-4" href="{% url 'animal_detail' pk=animal.pk %}">
-                  {{animal.name}} {% if animal.state == 'URGENCY' %}
-                  <span class="tag is-danger">{{animal.get_state_display}}</span>
-                  {% endif %}
-                </a>
-              </div>
-              <div class="content">
-                  <p>{{animal.description|truncatechars_html:175 }}</p>
-              </div>
-              <div class="columns">
-                <div class="column is-half card-down">
-                  <Strong>
-                    <label>Animal:</label>
-                  </Strong>
-                  {{animal.get_animal_type_display}}
-                  <br>
-                  <Strong>
-                    <label>Sexo:</label>
-                  </Strong>
-                  {{animal.get_sex_display}}
-                  <br>
-                  <Strong>
+            <div class="content">
+              <p>{{animal.description|truncatechars_html:175 }}</p>
+            </div>
+            <div class="columns">
+              <div class="column is-half card-down">
+                <Strong>
+                  <label>Animal:</label>
+                </Strong>
+                {{animal.get_animal_type_display}}
+                <br>
+                <Strong>
+                  <label>Sexo:</label>
+                </Strong>
+                {{animal.get_sex_display}}
+                <br>
+                <Strong>
                   <label>Tamaño:</label>
-                  </Strong>
-                  {{animal.get_size_display}}
-                  <br>
-                  <a class="button is-primary is-rounded" href="{% url 'animal_detail' pk=animal.pk %}">Conóceme!</a>
-                </div>
-                <div class="column is-half">
-                  <strong>
-                    <p>Fecha nacimiento</p>
-                  </strong>
-                  <time>{{animal.birth_date}}</time>
-                  <strong>
-                    <p>Fecha de llegada</p>
-                  </strong>
-                  <time>{{animal.entry_date}}</time>
-                </div>
+                </Strong>
+                {{animal.get_size_display}}
+                <br>
+                <a class="button is-primary is-rounded" href="{% url 'animal_detail' pk=animal.pk %}">Conóceme!</a>
+              </div>
+              <div class="column is-half">
+                <strong>
+                  <p>Fecha nacimiento</p>
+                </strong>
+                <time>{{animal.birth_date}}</time>
+                <strong>
+                  <p>Fecha de llegada</p>
+                </strong>
+                <time>{{animal.entry_date}}</time>
               </div>
             </div>
           </div>
         </div>
+      </div>
       {% endfor %}
     </div>
     {% include 'webapp/_pagination.html' %}
 </section>
-{% endblock content %}
+<script src="{% static 'js/filters.js' %}"></script> {% endblock content %}
