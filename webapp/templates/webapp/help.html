@@ -1,3 +1,49 @@
-{% extends 'webapp/base.html' %} {% block content %}
-<h1 class="title">Ayudanos!!</h1>
+{% extends 'webapp/base.html' %} {% load static from staticfiles %} {% block content %} {% include 'webapp/navbar.html' %}
+<a href="https://www.paypal.com/es/home">
+    <section class="hero is-danger">
+        <div class="hero-body">
+            <div class="container">
+
+                <h1 class="title">
+                    Ayudanos con la comida!
+                </h1>
+
+                <h2 class="subtitle">
+                    Pienso-agua-premios
+                </h2>
+                <img src="{% static 'img/food.jpg' %}" alt="">
+            </div>
+        </div>
+    </section>
+</a>
+<a href="https://www.paypal.com/es/home">
+    <section class="hero is-warning">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Ayudanos a pagar los gastos medicos!
+                </h1>
+                <h2 class="subtitle">
+                    Los aniamlitos tambien necesitan ir al medico
+                </h2>
+                <img src="{% static 'img/vet.jpg' %}" alt="">
+            </div>
+        </div>
+    </section>
+</a>
+<a href="https://www.paypal.com/es/home">
+    <section class="hero is-link">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Ayudanos con los gastos generales!
+                </h1>
+                <h2 class="subtitle">
+                    El refugio tiene direferntes gastos que necesitamos pagar.
+                </h2>
+                <img src="{% static 'img/cat.jpg' %}" alt="">
+            </div>
+        </div>
+    </section>
+</a>
 {% endblock content %}

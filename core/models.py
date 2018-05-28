@@ -65,7 +65,7 @@ class Foster(models.Model):
 
 class AdopterFamily(models.Model):
     animal = models.ForeignKey('Animal', on_delete=models.CASCADE)
-    person = models.ForeignKey('Person', on_delete=models.CASCADE, related_name='families')
+    person = models.ForeignKey('Person', on_delete=models.CASCADE)
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
