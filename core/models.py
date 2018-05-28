@@ -6,6 +6,7 @@ from core.services import generate_unique_file_path
 from django.urls import reverse
 from autoslug import AutoSlugField
 
+
 class TimeStampleModel(models.Model):
     created = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     modified = models.DateTimeField(auto_now=True, blank=True, null=True)
@@ -51,7 +52,7 @@ class Animal(TimeStampleModel):
     state = models.CharField('Estado',
                              max_length=50,
                              choices=STATE_CHOICES, default='UNAVAILABLE')
-    slug = AutoSlugField(populate_from='name')
+    slug = AutoSlugField(populate_from='name', unique=True)
 
     def __str__(self):
         return f'{self.name} {self.animal_type}'
@@ -80,8 +81,7 @@ class AdopterFamily(TimeStampleModel):
     animal = models.ForeignKey('Animal', on_delete=models.CASCADE)
     person = models.ForeignKey('Person', on_delete=models.CASCADE)
 
-    def save(self, force_insert=False, force_update=False, using=None,
-             update_fields=None):
-        super()
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
         self.animal.state = 'UNAVAILABLE'
         self.animal.save()
