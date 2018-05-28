@@ -44,14 +44,14 @@
                 <img src="{{ animal.image.url }}" />
                 
                 {% else %}
-                <img src="https://loremflickr.com/300/240/dog?random={{animal.pk}}" alt="Placeholder image">
+                <img src="https://loremflickr.com/300/240/dog?random={{animal.slug}}" alt="Placeholder image">
                 {% endif %}
                 
             </figure>
           </div>
           <div class="card-content">
             <div class="media-content">
-              <a class="title is-4" href="{% url 'animal_detail' pk=animal.pk %}">
+              <a class="title is-4" href="{% url 'animal_detail' slug=animal.slug %}">
                 {{animal.name}} {% if animal.state == 'URGENCY' %}
                 <span class="tag is-danger">{{animal.get_state_display}}</span>
                 {% endif %}
@@ -92,7 +92,7 @@
               </div>
              
             </div>
-            <a class="button is-primary is-rounded" href="{% url 'animal_detail' pk=animal.pk %}">Conóceme!</a>
+            <a class="button is-primary is-rounded" href="{% url 'animal_detail' slug=animal.slug %}">Conóceme!</a>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ class AnimalSitemap(Sitemap):
 
     def items(self):
         return models.Animal.objects.exclude(state='UNAVAILABLE').order_by('-state', 'entry_date')
-    
+
     def lastmod(self, obj):
         return obj.modified
 
@@ -17,17 +17,17 @@ class AnimalSitemap(Sitemap):
 class HomeSitemap(Sitemap):
     changefreq = 'weekly'
     priority = 1
-    
+
     def items(self):
         return models.Animal.objects.filter(state='URGENCY').order_by('-state', 'entry_date')
-    
+
     def lastmod(self, obj):
         return obj.modified
 
 
 class StaticViewSitemap(Sitemap):
     changefreq = 'weekly'
-    priority = 0.5    
+    priority = 0.5
 
     def items(self):
         return ['frequentQuestions', 'aboutUs', 'help', 'contact']

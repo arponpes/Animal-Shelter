@@ -4,7 +4,7 @@ from versatileimagefield.fields import VersatileImageField
 
 from core.services import generate_unique_file_path
 from django.urls import reverse
-
+from autoslug import AutoSlugField
 
 class TimeStampleModel(models.Model):
     created = models.DateTimeField(auto_now_add=True, blank=True, null=True)
@@ -51,6 +51,7 @@ class Animal(TimeStampleModel):
     state = models.CharField('Estado',
                              max_length=50,
                              choices=STATE_CHOICES, default='UNAVAILABLE')
+    slug = AutoSlugField(populate_from='name')
 
     def __str__(self):
         return f'{self.name} {self.animal_type}'
