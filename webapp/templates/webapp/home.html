@@ -19,13 +19,13 @@
       </h1>
       <div class="columns">
         <div class="column is-4 filter">
-          {% include 'filter/filter.html' with field=filter.form.fields.sex name='sex' title='Sexo' selected=request.GET.sex %}
-        </div>
-        <div class="column is-4 filter">
           {% include 'filter/filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type%}
         </div>
         <div class="column is-4 filter">
-          {% include 'filter/filter.html' with field=filter.form.fields.size name='size' title='size' selected=request.GET.size%}
+            {% include 'filter/filter.html' with field=filter.form.fields.sex name='sex' title='Sexo' selected=request.GET.sex %}
+          </div>
+        <div class="column is-4 filter">
+          {% include 'filter/filter.html' with field=filter.form.fields.size name='size' title='Tamaño' selected=request.GET.size%}
         </div>
       </div>
       <input type="submit" id="form" value="Filtrar" class="button is-primary is-rounded is-medium" />
@@ -40,7 +40,13 @@
         <div class="card">
           <div class="card-image">
             <figure class="image is-4by3">
-              <img src="https://loremflickr.com/300/240/dog?random={{animal.pk}}" alt="Placeholder image">
+                {% if animal.image %}
+                <img src="{{ animal.image.url }}" />
+                
+                {% else %}
+                <img src="https://loremflickr.com/300/240/dog?random={{animal.pk}}" alt="Placeholder image">
+                {% endif %}
+                
             </figure>
           </div>
           <div class="card-content">
@@ -57,7 +63,7 @@
             <div class="columns">
               <div class="column is-half is-half-mobile">
                 <Strong>
-                  <label>Animal:</label>
+                  <label>Mascota:</label>
                 </Strong>
                 {{animal.get_animal_type_display}}
                 <br>

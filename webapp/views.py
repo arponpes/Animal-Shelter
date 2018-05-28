@@ -1,8 +1,10 @@
+from django.shortcuts import render
 from django.views.generic import DetailView, TemplateView
 
-from core.models import Animal
 from django_filters.views import FilterView
+
 from core import filters
+from core.models import Animal
 
 
 class HomeView(FilterView):
@@ -11,7 +13,7 @@ class HomeView(FilterView):
     queryset = Animal.objects.filter(state='URGENCY').order_by('-state', 'entry_date')
     filterset_class = filters.AnimalFilter
     context_object_name = 'animals'
-    
+
 
 class AnimalsView(FilterView):
     model = Animal
@@ -49,3 +51,13 @@ class ContactView(TemplateView):
 class AnimalDetail(DetailView):
     model = Animal
     template_name = 'webapp/animal_detail.html'
+
+
+def error_404(request):
+        data = {}
+        return render(request, 'webapp/404.html', data)
+
+
+def error_500(request):
+        data = {}
+        return render(request, 'webapp/500.html', data)

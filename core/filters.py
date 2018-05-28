@@ -1,5 +1,6 @@
+from django_filters import ChoiceFilter, FilterSet
+
 from core.models import Animal
-from django_filters import FilterSet, ChoiceFilter
 
 
 class AnimalFilter(FilterSet):

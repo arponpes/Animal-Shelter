@@ -1,5 +1,9 @@
 from django.db import models
 
+from versatileimagefield.fields import VersatileImageField
+
+from core.services import generate_unique_file_path
+
 
 class Animal(models.Model):
     ANIMAL_TYPE_CHOICES = (
@@ -25,6 +29,8 @@ class Animal(models.Model):
     entry_date = models.DateField('Fecha de entrada')
     departure_date = models.DateField('Fecha de salida', blank=True, null=True)
     description = models.TextField('Descripcion', blank=True, null=True)
+    image = VersatileImageField('Imagen', null=True, blank=True,
+                                upload_to=generate_unique_file_path)
     size = models.CharField('Tamaño',
                             max_length=50,
                             choices=SIZE_CHOICES, default='MEDIUM')
@@ -36,7 +42,7 @@ class Animal(models.Model):
     state = models.CharField('Estado',
                              max_length=50,
                              choices=STATE_CHOICES, default='UNAVAILABLE')
-
+    
     def __str__(self):
         return f'{self.name} {self.animal_type}'
 
@@ -59,7 +65,7 @@ class Foster(models.Model):
 
 class AdopterFamily(models.Model):
     animal = models.ForeignKey('Animal', on_delete=models.CASCADE)
-    person = models.ForeignKey('Person', on_delete=models.CASCADE)
+    person = models.ForeignKey('Person', on_delete=models.CASCADE, related_name='families')
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):

@@ -9,9 +9,16 @@ class AnimalAdmin(admin.ModelAdmin):
     search_fields = ('name',)
 
 
+# class AnimalInline(admin.StackedInline):
+#     model = Animal
+
+
 class PersonAdmin(admin.ModelAdmin):
     list_display = ('name', 'last_name', 'address', 'phone', 'email')
     search_fields = ('name', 'phone')
+    # inlines = [
+    #     AnimalInline,
+    # ]
 
 
 class AdopterFamilyAdmin(admin.ModelAdmin):
