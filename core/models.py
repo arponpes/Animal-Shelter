@@ -1,12 +1,15 @@
 from django.db import models
+
 from versatileimagefield.fields import VersatileImageField
+
 from core.services import generate_unique_file_path
+from django.urls import reverse
 
 
 class TimeStampleModel(models.Model):
     created = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     modified = models.DateTimeField(auto_now=True, blank=True, null=True)
-    
+
     class Meta:
         abstract = True
 
@@ -51,6 +54,9 @@ class Animal(TimeStampleModel):
 
     def __str__(self):
         return f'{self.name} {self.animal_type}'
+
+    def get_absolute_url(self):
+        return reverse('animals',)
 
 
 class Person(TimeStampleModel):
