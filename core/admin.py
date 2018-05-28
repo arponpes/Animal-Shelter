@@ -5,9 +5,9 @@ from .models import AdopterFamily, Animal, Foster, Person
 
 class AnimalAdmin(admin.ModelAdmin):
     list_filter = ('animal_type', 'sex', 'state', 'size')
-    list_display = ('name', 'animal_type', 'sex', 'state', 'size')
+    list_display = ('name', 'animal_type', 'sex', 'state', 'size', 'slug')
     search_fields = ('name',)
-
+    readonly_fields = ('slug', 'created', 'modified')
 
 # class AnimalInline(admin.StackedInline):
 #     model = Animal
@@ -24,6 +24,7 @@ class PersonAdmin(admin.ModelAdmin):
 class AdopterFamilyAdmin(admin.ModelAdmin):
     list_display = ('animal', 'person')
     list_filter = ('person__name',)
+    autocomplete_fields = ('animal', 'person')
 
 
 class FosterAdmin(admin.ModelAdmin):

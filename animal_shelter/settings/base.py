@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     'core',
     'webapp',
     'django_filters',
@@ -133,4 +134,3 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/resource/'
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'uploaded')
-
