@@ -19,7 +19,8 @@ def generate_unique_file_path(instance, filename):
     uuid_str = str(uuid.uuid4())
     instance.uuid = uuid_str
 
-    # Save in a folder/file structure to avoid too many files in the same directory:
+    # Save in a folder/file structure to avoid
+    #  too many files in the same directory:
     # - folder name are the 1st and 2n chars
     # - filename the rest
     folder, filename = uuid_str[:2], uuid_str[2:]

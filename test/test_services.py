@@ -1,5 +1,4 @@
-from core import factories
-from core import services
+from core import factories, services
 
 
 def test_generate_unique_file_path():

@@ -133,4 +133,3 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/resource/'
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'uploaded')
-

@@ -1,11 +1,17 @@
 from django.db import models
-
 from versatileimagefield.fields import VersatileImageField
-
 from core.services import generate_unique_file_path
 
 
-class Animal(models.Model):
+class TimeStampleModel(models.Model):
+    created = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    modified = models.DateTimeField(auto_now=True, blank=True, null=True)
+    
+    class Meta:
+        abstract = True
+
+
+class Animal(TimeStampleModel):
     ANIMAL_TYPE_CHOICES = (
         ('DOG', 'Perro'),
         ('CAT', 'Gato'),
@@ -42,12 +48,12 @@ class Animal(models.Model):
     state = models.CharField('Estado',
                              max_length=50,
                              choices=STATE_CHOICES, default='UNAVAILABLE')
-    
+
     def __str__(self):
         return f'{self.name} {self.animal_type}'
 
 
-class Person(models.Model):
+class Person(TimeStampleModel):
     name = models.CharField('Nombre', max_length=50)
     last_name = models.CharField('Apellidos', max_length=70)
     phone = models.CharField('Telefono', max_length=20)
@@ -58,12 +64,12 @@ class Person(models.Model):
         return f'{self.name}'
 
 
-class Foster(models.Model):
+class Foster(TimeStampleModel):
     animal = models.ForeignKey('Animal', on_delete=models.CASCADE)
     person = models.ForeignKey('Person', on_delete=models.CASCADE)
 
 
-class AdopterFamily(models.Model):
+class AdopterFamily(TimeStampleModel):
     animal = models.ForeignKey('Animal', on_delete=models.CASCADE)
     person = models.ForeignKey('Person', on_delete=models.CASCADE)
 
