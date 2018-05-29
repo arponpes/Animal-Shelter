@@ -1,3 +1,7 @@
+from datetime import datetime as dt
+
+from django.db.models import BooleanField, Case, F, When
+from django.db.models.functions import Extract
 from django.shortcuts import render
 from django.views.generic import DetailView, TemplateView
 
@@ -10,7 +14,8 @@ from core.models import Animal
 class HomeView(FilterView):
     model = Animal
     template_name = 'webapp/home.html'
-    queryset = Animal.objects.filter(state='URGENCY').order_by('-state', 'entry_date')
+    queryset = (Animal.objects.filter(state='URGENCY')
+                .order_by('-state', 'entry_date'))
     filterset_class = filters.AnimalFilter
     context_object_name = 'animals'
 
@@ -19,9 +24,16 @@ class AnimalsView(FilterView):
     model = Animal
     template_name = 'webapp/animals.html'
     paginate_by = 9
-    queryset = Animal.objects.exclude(state='UNAVAILABLE').order_by('-state', 'entry_date')
     filterset_class = filters.AnimalFilter
     context_object_name = 'animals'
+
+    def get_queryset(self):
+        return (Animal.objects
+                .annotate(duration=Extract(dt.now() - F('birth_date'), 'days'))
+                .annotate(is_puppy=Case(When(duration__lt=365, then=True),
+                          default=False, output_field=BooleanField()))
+                .exclude(state='UNAVAILABLE')
+                .order_by('-state', 'entry_date'))
 
     def get_context_data(self, *args, **kwargs):
         data = super().get_context_data(*args, **kwargs)

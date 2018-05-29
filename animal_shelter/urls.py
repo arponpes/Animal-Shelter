@@ -23,7 +23,6 @@ from django.urls import include, path, re_path
 from core import sitemaps
 from webapp import views
 
-
 sitemaps = {
     'animals': sitemaps.AnimalSitemap,
     'home': sitemaps.HomeSitemap,
