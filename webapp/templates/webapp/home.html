@@ -1,4 +1,4 @@
-{% extends 'webapp/base.html' %} {% block content %} {% include 'webapp/navbar.html' %}
+{% extends 'webapp/base.html' %} {% block content %} {% include 'webapp/_navbar.html' %}
 <section class="hero is-medium is-danger is-bold frase">
   <div class="hero-body">
     <div class="container">
@@ -18,16 +18,19 @@
         Encuéntrame
       </h1>
       <div class="columns">
-        <div class="column is-4 filter">
-          {% include 'filter/filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type%}
-        </div>
-        <div class="column is-4 filter">
-            {% include 'filter/filter.html' with field=filter.form.fields.sex name='sex' title='Sexo' selected=request.GET.sex %}
+          <div class="column is-3 filter">
+            {% include 'filter/_filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type%}
           </div>
-        <div class="column is-4 filter">
-          {% include 'filter/filter.html' with field=filter.form.fields.size name='size' title='Tamaño' selected=request.GET.size%}
+          <div class="column is-3 filter">
+            {% include 'filter/_filter.html' with field=filter.form.fields.sex name='sex' title='Sexo' selected=request.GET.sex %}
+          </div>
+          <div class="column is-3 filter">
+            {% include 'filter/_filter.html' with field=filter.form.fields.size name='size' title='Tamaño' selected=request.GET.size %}
+          </div>
+          <div class="column is-3 filter">
+              {% include 'filter/_filter.html' with field=filter.form.fields.is_puppy name='is_puppy' title='Edad' selected=request.GET.is_puppy %}
+          </div>
         </div>
-      </div>
       <input type="submit" id="form" value="Filtrar" class="button is-primary is-rounded is-medium" />
     </form>
 

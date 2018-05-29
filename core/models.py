@@ -1,10 +1,10 @@
 from django.db import models
+from django.urls import reverse
 
+from autoslug import AutoSlugField
 from versatileimagefield.fields import VersatileImageField
 
 from core.services import generate_unique_file_path
-from django.urls import reverse
-from autoslug import AutoSlugField
 
 
 class TimeStampleModel(models.Model):

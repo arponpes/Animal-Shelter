@@ -4,10 +4,13 @@ $(".sex").on('click', function () {
 
 $(".animal_type").on('click', function () {
     $("#form").submit();
-
 });
 
 $(".size").on('click', function () {
     $("#form").submit();
-
 });
+
+$(".is_puppy").on('click', function () {
+    $("#form").submit();
+});
+
