@@ -1,4 +1,4 @@
-{% extends 'webapp/base.html' %}{% load static from staticfiles %} {% block content %} {% include 'webapp/navbar.html' %}
+{% extends 'webapp/base.html' %}{% load static from staticfiles %} {% block content %} {% include 'webapp/_navbar.html' %}
 
 <section class="section">
   <div class="container">
@@ -8,16 +8,16 @@
       </h1>
       <div class="columns">
         <div class="column is-3 filter">
-          {% include 'filter/filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type%}
+          {% include 'filter/_filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type%}
         </div>
         <div class="column is-3 filter">
-          {% include 'filter/filter.html' with field=filter.form.fields.sex name='sex' title='Sexo' selected=request.GET.sex %}
+          {% include 'filter/_filter.html' with field=filter.form.fields.sex name='sex' title='Sexo' selected=request.GET.sex %}
         </div>
         <div class="column is-3 filter">
-          {% include 'filter/filter.html' with field=filter.form.fields.size name='size' title='Tamaño' selected=request.GET.size %}
+          {% include 'filter/_filter.html' with field=filter.form.fields.size name='size' title='Tamaño' selected=request.GET.size %}
         </div>
         <div class="column is-3 filter">
-            {% include 'filter/filter.html' with field=filter.form.fields.is_puppy name='is_puppy' title='Edad' selected=request.GET.is_puppy %}
+            {% include 'filter/_filter.html' with field=filter.form.fields.is_puppy name='is_puppy' title='Edad' selected=request.GET.is_puppy %}
         </div>
       </div>
     </form>
