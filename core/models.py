@@ -58,7 +58,7 @@ class Animal(TimeStampleModel):
         return f'{self.name} {self.animal_type}'
 
     def get_absolute_url(self):
-        return reverse('animals',)
+        return reverse('animal_detail', args=[self.slug])
 
 
 class Person(TimeStampleModel):
