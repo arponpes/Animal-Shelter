@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -89,6 +90,7 @@ DATABASES = {
     }
 }
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Password validation
 # https://docs.djangoProject.com/en/2.0/ref/settings/#auth-password-validators
@@ -128,9 +130,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'staticfiles')
-STATICFILES_DIRS = [
-    os.path.join(PROJECT_DIR, 'static'),
-]
+# STATICFILES_DIRS = [
+#     os.path.join(PROJECT_DIR, 'static'),
+# ]
 
 MEDIA_URL = '/resource/'
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'uploaded')
