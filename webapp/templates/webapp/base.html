@@ -16,9 +16,12 @@
     <script src="{% static 'js/burger.js' %}"></script>
 </head>
 <body>
+    <div class="app">
+        <div class="main">
     {% block content %}
     {% endblock %}
-    
+        </div>
+    {% include 'webapp/_footer.html' %}
+    </div>
 </body>
-{% include 'webapp/_footer.html' %}
 </html>

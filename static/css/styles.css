@@ -1,3 +1,7 @@
+html{
+    overflow-y: auto;
+}
+
 .container {
     margin-top: 1em;
 }
@@ -38,4 +42,13 @@ font-size: 5rem;
 }
 .eror404subtitle{
     font-size: 1.5rem;
+}
+
+.app{
+    display: flex;
+    flex-direction: column;
+    height: 100vh    
+}
+.main{
+    flex-grow: 1;
 }

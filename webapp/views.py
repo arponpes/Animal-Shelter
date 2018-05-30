@@ -65,3 +65,4 @@ class AnimalDetail(DetailView):
 
     def get_queryset(self):
         return Animal.objects.exclude(state='UNAVAILABLE')
+
