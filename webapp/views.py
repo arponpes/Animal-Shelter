@@ -2,6 +2,7 @@ from datetime import datetime as dt
 
 from django.db.models import BooleanField, Case, F, When
 from django.db.models.functions import Extract
+from django.shortcuts import render
 from django.views.generic import DetailView, TemplateView
 
 from django_filters.views import FilterView
@@ -63,5 +64,12 @@ class AnimalDetail(DetailView):
     model = Animal
     template_name = 'webapp/animal_detail.html'
 
-    def get_queryset(self):
-        return Animal.objects.exclude(state='UNAVAILABLE')
+
+def error_404(request):
+        data = {}
+        return render(request, 'webapp/404.html', data)
+
+
+def error_500(request):
+        data = {}
+        return render(request, 'webapp/500.html', data)
