@@ -60,3 +60,6 @@ font-size: 5rem;
 .fixed-height .card .card-content{
     height: 100%;
 }
+.form-fiel{
+    width: 100%;
+}

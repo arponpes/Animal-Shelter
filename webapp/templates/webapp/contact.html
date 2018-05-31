@@ -2,30 +2,32 @@
 
 <div class="container">
   <section class="section">
+    <h1 class="title">Contacta con nosotros</h1>
+    <h2 class="subtitle">Cualquier duda que tengas, sonbre la adopcion, voluntariado, donaciones...</h2>
     <form method="post" class="form" enctype="multipart/form-data">{% csrf_token %}
 
 
       <div class="field {% if form.name.errors %}error{% endif %}">
         <label class="label">Nombre</label>
-        {% render_field form.name placeholder='Nombre' %} {{ form.name.errors.0 }}
+        {% render_field form.name|add_class:"input" placeholder='Nombre' %} {{ form.name.errors.0 }}
       </div>
 
       <div class="field {% if form.subject.errors %}error{% endif %}">
         <label class="label">Asunto</label>
-        {% render_field form.subject placeholder='Asunto' %} {{ form.subject.errors.0 }}
+        {% render_field form.subject|add_class:"input" placeholder='Asunto' %} {{ form.subject.errors.0 }}
       </div>
 
       <div class="field {% if form.email.errors %}error{% endif %}">
         <label class="label">Email</label>
-        {% render_field form.email placeholder='Email' %} {{ form.email.errors.0 }}
+        {% render_field form.email|add_class:"input" placeholder='Email' %} {{ form.email.errors.0 }}
       </div>
 
       <div class="field {% if form.message.errors %}error{% endif %}">
         <label class="label">Mensaje</label>
-        {% render_field form.message placeholder='Mensaje' %} {{ form.message.errors.0 }}
+        {% render_field form.message|add_class:"textarea" placeholder='Mensaje' %} {{ form.message.errors.0 }}
       </div>
 
-      <button class="submit primary button" type="submit">Enviar</button>
+      <button class="button is-link" type="submit">Enviar</button>
     </form>
   </section>
 </div>
