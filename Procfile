@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn workTimer.wsgi:application --log-file -
+web: gunicorn animal_shelter.wsgi:application --log-file -

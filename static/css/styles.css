@@ -47,8 +47,16 @@ font-size: 5rem;
 .app{
     display: flex;
     flex-direction: column;
-    height: 100vh    
+    height: 100vh;
 }
 .main{
     flex-grow: 1;
+}
+.fixed-height .card{
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+}
+.fixed-height .card .card-content{
+    height: 100%;
 }
