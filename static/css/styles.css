@@ -52,3 +52,11 @@ font-size: 5rem;
 .main{
     flex-grow: 1;
 }
+.fixed-height .card{
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+}
+.fixed-height .card .card-content{
+    height: 100%;
+}
