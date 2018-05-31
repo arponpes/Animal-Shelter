@@ -1,6 +1,6 @@
-from .base import *
-
 import dj_email_url
+
+from .base import *
 
 ALLOWED_HOSTS = [
     '*',

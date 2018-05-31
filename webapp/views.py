@@ -3,7 +3,7 @@ from datetime import datetime as dt
 from django.contrib import messages
 from django.db.models import BooleanField, Case, F, When
 from django.db.models.functions import Extract
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 from django.views import generic
 from django.views.generic import DetailView, TemplateView
 
@@ -11,7 +11,6 @@ from django_filters.views import FilterView
 
 from core import filters, forms
 from core.models import Animal
-from webapp import services
 
 
 class HomeView(FilterView):
@@ -63,7 +62,7 @@ class ContactView(generic.FormView):
     template_name = 'webapp/contact.html'
     form_class = forms.ContactForm
     success_url = reverse_lazy('home')
-    
+
     def form_valid(self, form):
         form.send_email()
         messages.success(self.request, 'Mensaxe enviado correctamente')
