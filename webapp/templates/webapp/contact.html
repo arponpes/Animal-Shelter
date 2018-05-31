@@ -1,21 +1,38 @@
 {% extends 'webapp/base.html' %}
-{% block content %} 
+{% load widget_tweaks %}
+{% block content %}
 {% include 'webapp/_navbar.html' %}
 
-<section class="hero is-medium is-info is-bold frase">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-          Si deseas contactar con nosotros puedes hacerlo a traves del siguiente correo.
-        </h1>
-        <h2 class="subtitle">
-            <address>
-                <a href="mailto:animalshelter@gmail.com">
-                  <span itemprop="email">animalshelter@gmail.com</span>
-                </a>
-            </address> 
-        </h2>
-      </div>
-    </div>
+<div class="container">
+  <section class="section">
+   
+<form method="post" class="ui form" enctype="multipart/form-data">{% csrf_token %}
+  <div class="field {% if form.name.errors %}error{% endif %}">
+      <label>Nome</label>
+      {% render_field form.name placeholder='Nome' %}
+      {{ form.name.errors.0 }}
+  </div>
+
+  <div class="field{% if form.subject.errors %}error{% endif %}">
+      <label>Asunto</label>
+      {% render_field form.subject placeholder='Asunto' %}
+      {{ form.subject.errors.0 }}
+  </div>
+
+  <div class="field {% if form.email.errors %}error{% endif %}">
+      <label>E-mail</label>
+      {% render_field form.email placeholder='E-mail' %}
+      {{ form.email.errors.0 }}
+  </div>
+
+  <div class="field {% if form.message.errors %}error{% endif %}">
+      <label>Mensaxe</label>
+      {% render_field form.message placeholder='Mensaxe' %}
+      {{ form.message.errors.0 }}
+  </div>
+
+  <button class="ui submit primary button" type="submit">Enviar</button>
+</form>
   </section>
+</div>
 {% endblock content %}

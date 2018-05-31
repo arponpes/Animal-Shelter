@@ -1,13 +1,17 @@
 from datetime import datetime as dt
 
+from django.contrib import messages
 from django.db.models import BooleanField, Case, F, When
 from django.db.models.functions import Extract
+from django.urls import reverse, reverse_lazy
+from django.views import generic
 from django.views.generic import DetailView, TemplateView
 
 from django_filters.views import FilterView
 
-from core import filters
+from core import filters, forms
 from core.models import Animal
+from webapp import services
 
 
 class HomeView(FilterView):
@@ -55,8 +59,34 @@ class HelpView(TemplateView):
     template_name = 'webapp/help.html'
 
 
-class ContactView(TemplateView):
+class ContactView(generic.FormView):
     template_name = 'webapp/contact.html'
+    form_class = forms.ContactForm
+    success_url = reverse_lazy('home')
+
+    def get_breadcrumbs(self, **kwargs):
+        return services.BreadcrumbBag([
+            ['Inicio', reverse('home')],
+            ['Contacto'],
+        ])
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        description = 'Contacta con nos coas túas dúbidas, correxir erratas, erros...'
+        context['meta_bag'] = services.MetaBag('Páxina de contacto', description)
+        return context
+
+    def form_valid(self, form):
+        form.send_email()
+        messages.success(self.request, 'Mensaxe enviado correctamente')
+        return super(ContactView, self).form_valid(form)
+
+    def form_invalid(self, *args, **kwargs):
+        messages.error(self.request, 'Error enviando o formulario')
+        return super().form_invalid(*args, **kwargs)
+
+    def get_success_url(self):
+        return reverse_lazy('home')
 
 
 class AnimalDetail(DetailView):
