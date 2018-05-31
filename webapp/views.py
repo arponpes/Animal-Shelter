@@ -63,19 +63,7 @@ class ContactView(generic.FormView):
     template_name = 'webapp/contact.html'
     form_class = forms.ContactForm
     success_url = reverse_lazy('home')
-
-    def get_breadcrumbs(self, **kwargs):
-        return services.BreadcrumbBag([
-            ['Inicio', reverse('home')],
-            ['Contacto'],
-        ])
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        description = 'Contacta con nos coas túas dúbidas, correxir erratas, erros...'
-        context['meta_bag'] = services.MetaBag('Páxina de contacto', description)
-        return context
-
+    
     def form_valid(self, form):
         form.send_email()
         messages.success(self.request, 'Mensaxe enviado correctamente')
