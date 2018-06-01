@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+boto3 = "*"
 Django = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
