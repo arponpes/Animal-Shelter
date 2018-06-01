@@ -14,7 +14,7 @@ django_heroku.settings(locals())
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Email
-ADMINS = [('Admin', os.getenv('ADMIN_EMAIL'))]
+ADMINS = [('Juan', os.getenv('ADMIN_EMAIL'))]
 SERVER_EMAIL = os.getenv('SERVER_EMAIL')
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
 EMAIL_SUBJECT_PREFIX = '[animal.shelter.vigo@{}] '.format(platform.node())
