@@ -15,8 +15,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Email
 ADMINS = [('Admin', os.getenv('ADMIN_EMAIL'))]
-SERVER_EMAIL = os.getenv('SERVER_EMAIL')
-DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
+SERVER_EMAIL = os.getenv['SERVER_EMAIL']
+DEFAULT_FROM_EMAIL = os.getenv['DEFAULT_FROM_EMAIL']
 EMAIL_SUBJECT_PREFIX = '[animal.shelter.vigo@{}] '.format(platform.node())
 
 email_config = dj_email_url.config()
@@ -33,9 +33,9 @@ EMAIL_USE_SSL = email_config['EMAIL_USE_SSL']
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+AWS_ACCESS_KEY_ID = os.env['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.env['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = os.env['AWS_STORAGE_BUCKET_NAME']
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
     'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',

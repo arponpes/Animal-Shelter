@@ -1,3 +1,4 @@
+import logging
 from datetime import datetime as dt
 
 from django.contrib import messages
@@ -12,10 +13,8 @@ from django_filters.views import FilterView
 from core import filters, forms
 from core.models import Animal
 
-
-import logging
-
 logger = logging.getLogger(__name__)
+
 
 class HomeView(FilterView):
     model = Animal
