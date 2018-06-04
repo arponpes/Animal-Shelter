@@ -1,4 +1,3 @@
-import logging
 from datetime import datetime as dt
 
 from django.contrib import messages
@@ -12,8 +11,6 @@ from django_filters.views import FilterView
 
 from core import filters, forms
 from core.models import Animal
-
-logger = logging.getLogger(__name__)
 
 
 class HomeView(FilterView):
@@ -67,10 +64,6 @@ class ContactView(generic.FormView):
     success_url = reverse_lazy('home')
 
     def form_valid(self, form):
-        import os
-        logger.warning(
-            os.getenv('EMAIL_URL')
-        )
         form.send_email()
         messages.success(self.request, 'Mensaxe enviado correctamente')
         return super(ContactView, self).form_valid(form)
