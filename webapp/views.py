@@ -65,11 +65,12 @@ class ContactView(generic.FormView):
 
     def form_valid(self, form):
         form.send_email()
-        messages.success(self.request, 'Mensaxe enviado correctamente')
+        messages.success(self.request,
+                         'Gracias por enviar contactar con nosotros!')
         return super(ContactView, self).form_valid(form)
 
     def form_invalid(self, *args, **kwargs):
-        messages.error(self.request, 'Error enviando o formulario')
+        messages.error(self.request, 'Error enviando el formulario')
         return super().form_invalid(*args, **kwargs)
 
     def get_success_url(self):
