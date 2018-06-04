@@ -1,10 +1,10 @@
-{% extends 'webapp/base.html' %} {% load widget_tweaks %} {% block content %} {% include 'webapp/_navbar.html' %}
+{% extends 'webapp/base.html' %}{% load static from staticfiles %} {% load widget_tweaks %} {% block content %} {% include 'webapp/_navbar.html' %}
 
 <div class="container">
   <section class="section">
     <h1 class="title">Contacta con nosotros</h1>
     <h2 class="subtitle">Cualquier duda que tengas, sonbre la adopcion, voluntariado, donaciones...</h2>
-    <form method="post" class="form" enctype="multipart/form-data">{% csrf_token %}
+    <form method="post" id="contact-form" class="form" enctype="multipart/form-data">{% csrf_token %}
 
 
       <div class="field {% if form.name.errors %}error{% endif %}">
@@ -27,8 +27,9 @@
         {% render_field form.message|add_class:"textarea" placeholder='Mensaje' %} {{ form.message.errors.0 }}
       </div>
 
-      <button class="button is-link" type="submit">Enviar</button>
+      <button class="button is-link" id="btn-send" type="submit">Enviar</button>
     </form>
   </section>
 </div>
+<script src="{% static 'js/protect_contact.js' %}"></script>
 {% endblock content %}
