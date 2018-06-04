@@ -10,9 +10,9 @@ class ContactForm(forms.Form):
     message = forms.CharField(required=True, widget=forms.Textarea)
 
     def send_email(self):
-        body = '<br />'.join(['Nome:', self.cleaned_data['name'], '',
-                              'E-mail', self.cleaned_data['email'], '',
-                              'Mensaxe:', self.cleaned_data['message']])
+        body = '<br />'.join(['Nombre:', self.cleaned_data['name'], '',
+                              'Email', self.cleaned_data['email'], '',
+                              'Mensaje:', self.cleaned_data['message']])
 
         email = EmailMultiAlternatives(
             subject=self.cleaned_data['subject'],
