@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'core',
     'webapp',
     'django_filters',
+    'storages',
     'versatileimagefield',
     'debug_toolbar',
 ]
