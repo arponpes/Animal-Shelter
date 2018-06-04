@@ -1,24 +1,31 @@
+{% url 'home' as home_url %}
+{% url 'animals' as animals_url %}
+{% url 'frequentQuestions' as frequentQuestions_url %}
+{% url 'aboutUs' as aboutUs_url %}
+{% url 'help' as help_url %}
+{% url 'contact' as contact_url %}
 <nav class="navbar is-light is-fixed-top">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="{% url 'home' %}">
-       <p class="logo">Animal Shelter</p>
-    </a>
-    <div class="navbar-burger burger" data-target="navbar_content">
-      <span></span>
-      <span></span>
-      <span></span>
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{% url 'home' %}">
+        <p class="logo">Animal Shelter</p>
+      </a>
+      <div class="navbar-burger burger" data-target="navbar_content">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
-  </div>
 
-  <div class="navbar-menu" id="navbar_content">
-    <div class="navbar-start">
-      <a class="navbar-item" id="home" href="{% url 'home' %}">Inicio</a>
-      <a class="navbar-item" id="animals" href="{% url 'animals' %}">Animales</a>
-      <a class="navbar-item" id="frequentQuestions" href="{% url 'frequentQuestions' %}">Preguntas Frecuentes</a>
-      <a class="navbar-item" id="aboutUs" href="{% url 'aboutUs' %}">Quienes somos</a>
-      <a class="navbar-item" id="help" href="{% url 'help' %}">Ayudanos!</a>
-      <a class="navbar-item" id="contact" href="{% url 'contact' %}">Contacto</a>
+    <div class="navbar-menu" id="navbar_content">
+      <div class="navbar-start">
+        <a class="navbar-item {% if request.get_full_path == home_url %}is-active{% endif %}" id="home" href="{% url 'home' %}">Inicio</a>
+        <a class="navbar-item {% if request.get_full_path == animals_url %}is-active{% endif %}" id="animals" href="{% url 'animals' %}">Animales</a>
+        <a class="navbar-item {% if request.get_full_path == frequentQuestions_url %}is-active{% endif %}" id="frequentQuestions" href="{% url 'frequentQuestions' %}">Preguntas Frecuentes</a>
+        <a class="navbar-item {% if request.get_full_path == aboutUs_url %}is-active{% endif %}" id="aboutUs" href="{% url 'aboutUs' %}">Quienes somos</a>
+        <a class="navbar-item {% if request.get_full_path == help_url %}is-active{% endif %}" id="help" href="{% url 'help' %}">Ayudanos!</a>
+        <a class="navbar-item {% if request.get_full_path == contact_url %}is-active{% endif %}" id="contact" href="{% url 'contact' %}">Contacto</a>
+      </div>
     </div>
   </div>
 </nav>
-

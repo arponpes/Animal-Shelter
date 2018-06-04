@@ -1,11 +1,6 @@
 html{
     overflow-y: auto;
 }
-
-.container {
-    margin-top: 1em;
-}
-
 .logo {
     font-family: 'Luckiest Guy', cursive;
 }
@@ -32,10 +27,6 @@ html{
 }
 .dates {
     border-left: 1px solid;
-}
-
-.card {
-    /* height: 41rem; */
 }
 .eror404title{
 font-size: 5rem;
