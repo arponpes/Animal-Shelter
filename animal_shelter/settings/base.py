@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'core',
     'webapp',
     'django_filters',
+    'storages',
     'versatileimagefield',
     'debug_toolbar',
 ]
@@ -138,3 +139,38 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/resource/'
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'uploaded')
+
+
+# logging configuration
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d: %(message)s'
+        },
+        'simple': {
+            'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        }
+    },
+    'loggers': {
+        '': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': True
+        },
+        'django.request': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False
+        },
+    }
+}

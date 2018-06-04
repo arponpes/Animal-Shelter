@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+boto3 = "*"
 Django = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
@@ -13,6 +14,7 @@ django-debug-toolbar = "*"
 django-filter = "*"
 dj-email-url = "*"
 whitenoise = "*"
+django-storages = "*"
 django-widget-tweaks = "*"
 django-versatileimagefield = "*"
 django-autoslug = {git = "https://github.com/iplweb/django-autoslug-iplweb.git", ref = "be379b83d90725b882c2ed38c9279167e69b6c7f"}
