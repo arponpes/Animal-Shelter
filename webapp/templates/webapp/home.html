@@ -27,10 +27,10 @@
   <div class="container">
     <form action="{% url 'animals' %}" method="get">
       <div class="column is-half-desktop">
-      <h2 class="subtitle">¿Cómo te gustaría que fuera tu nuevo compañero de viajes? Selecciona entre algunos de los filtros y te mostraremos el que
+        <h2 class="subtitle">¿Cómo te gustaría que fuera tu nuevo compañero de viajes? Selecciona entre algunos de los filtros y te mostraremos el que
         más se adapte a tus necesidades.</h2>
       </div>
-      <div class="columns is-multiline">
+      <div class="columns is-multiline is-mobile">
           <div class="column is-3-desktop is-half-mobile is-half-tablet">
             {% include 'filter/_filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type%}
           </div>
