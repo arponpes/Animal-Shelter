@@ -1,34 +1,50 @@
-{% extends 'webapp/base.html' %}
-{% block content %}
-{% include 'webapp/_navbar.html' %}
+{% extends 'webapp/base.html' %} {% block content %} {% include 'webapp/_navbar.html' %}
 
 <section class="section">
-    <div class="container">
-    
+    <div class="container margin-top">
+
         <div class="columns">
             <div class="column">
-                    <figure class="image is-4by3">
-                            <img src="https://loremflickr.com/300/240/dog" alt="Placeholder image">
-                          </figure>
+                <figure class="image is-4by3">
+                    {% if animal.image %}
+                    <img src="{{ animal.image.url }}" /> {% else %}
+                    <img src="https://loremflickr.com/300/240/dog?random={{animal.slug}}" alt="Placeholder image"> {% endif %}
+                </figure>
             </div>
             <div class="column">
-                <h1 class="title">{{animal.name}}
-                    {% if animal.state == 'AVAILABLE' %}
-                    <span class="tag is-success">{{animal.state}}</span></h1>
-                    {% else %}
-                    <span class="tag is-danger">{{animal.state}}</span></h1>
-                    {% endif %}
-                    
-                    <h1 class="subtitle">Datos</h2>
-                <p> <strong> Fecha de nacimiento</strong></p>
-                <p>{{animal.birth_date}}</p>
-                <p> <strong> Fecha de entrada </strong></p>
-                <p>{{animal.entry_date}}</p>
-                <p> <strong>Descripcion</strong> </p>
-                {{animal.description}}
+                <h1 class="title is-1">{{animal.name}} {% if animal.state == 'AVAILABLE' %}
+                    <span class="tag is-success">{{animal.state}}</span>
+                </h1>
+                {% else %}
+                <span class="tag is-danger">{{animal.state}}</span>
+                </h1>
+                {% endif %}
+
+                <h1 class="subtitle">Datos</h2>
+                    <p>
+                        <strong> Fecha de nacimiento</strong>
+                    </p>
+                    <p>{{animal.birth_date}}</p>
+                    <p>
+                            <strong>Raza</strong>
+                        </p>
+                    <p>
+                        {{animal.get_animal_type_display}}
+                    </p>
+                    <p>
+                            <strong>Tamaño</strong>
+                        </p>
+                    <p>
+                        {{animal.get_size_display}}
+                    </p>
+                    <p>
+                            <strong>Descripcion</strong>
+                        </p>
+
+                    {{animal.description}}
             </div>
         </div>
-    
+
 
     </div>
 </section>
