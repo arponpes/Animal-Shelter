@@ -1,56 +1,67 @@
-html{
-    overflow-y: auto;
-}
+html {
+  overflow-y: auto; }
+
 .logo {
-    font-family: 'Luckiest Guy', cursive;
-}
+  font-family: 'Luckiest Guy', cursive; }
 
 .navbar {
-    height: 3.5rem;
-}
+  height: 3.5rem; }
 
 .foot {
-    font-size: 2rem;
-}
+  font-size: 2rem; }
 
 .center {
-    text-align: center;
-}
+  text-align: center; }
 
 .foot-icon {
-    font-size: 1.5em;
-    color: black;
-}
-.error-icon{
-    font-size: 4rem;
-    color: black;
-}
-.dates {
-    border-left: 1px solid;
-}
-.eror404title{
-font-size: 5rem;
-}
-.eror404subtitle{
-    font-size: 1.5rem;
-}
+  font-size: 1.5em;
+  color: black; }
 
-.app{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
-.main{
-    flex-grow: 1;
-}
-.fixed-height .card{
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-}
-.fixed-height .card .card-content{
-    height: 100%;
-}
-.form-fiel{
-    width: 100%;
-}
+.error-icon {
+  font-size: 4rem;
+  color: black; }
+
+.dates {
+  border-left: 1px solid; }
+
+.eror404title {
+  font-size: 5rem; }
+
+.eror404subtitle {
+  font-size: 1.5rem; }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; }
+
+.main {
+  flex-grow: 1; }
+
+.fixed-height .card {
+  display: inline-block;
+  height: 100%;
+  width: 100%; }
+
+.fixed-height .card .card-content {
+  height: 100%; }
+
+.form-fiel {
+  width: 100%; }
+
+.cabecera {
+  background: url("../img/cabecera.jpeg") no-repeat center fixed;
+  width: 100%;
+  height: 100vh; }
+  @media screen and (max-width: 500px) {
+    .cabecera {
+      width: 100%;
+      height: 100vh;
+      background-size: 180% 100%; } }
+  @media screen and (min-width: 1200px) {
+    .cabecera {
+      width: 100%;
+      height: 100vh;
+      background-size: cover; } }
+
+/*# sourceMappingURL=styles.css.map */

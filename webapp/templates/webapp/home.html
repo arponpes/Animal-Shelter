@@ -1,22 +1,35 @@
-{% extends 'webapp/base.html' %} {% block content %} {% include 'webapp/_navbar.html' %}
-<section class="hero is-medium is-danger is-bold frase">
+{% extends 'webapp/base.html' %} {% block content %}{% include 'webapp/_navbar.html' %}
+<div class="cabecera">
+  <br>
+    <section class="hero is-medium is-transparent is-bold frase fixed">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              “Hasta que no hayas amado a un animal, parte de tu alma estará dormida”.
+            </h1>
+            <h2 class="subtitle">
+              Anatole France.
+            </h2>
+          </div>
+        </div>
+      </section>
+</div>
+<section class="hero is-small is-primary is-bold frase">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">
-        “Hasta que no hayas amado a un animal, parte de tu alma estará dormida”.
+      <h1 class="title center is-2">
+        Encuéntrame
       </h1>
-      <h2 class="subtitle">
-        Anatole France.
-      </h2>
     </div>
   </div>
 </section>
 <section class="section">
   <div class="container">
     <form action="{% url 'animals' %}" method="get">
-      <h1 class="title is-1 center">
-        Encuéntrame
-      </h1>
+      <div class="column is-half-desktop">
+      <h2 class="subtitle">¿Cómo te gustaría que fuera tu nuevo compañero de viajes? Selecciona entre algunos de los filtros y te mostraremos el que
+        más se adapte a tus necesidades.</h2>
+      </div>
       <div class="columns">
           <div class="column is-3 filter">
             {% include 'filter/_filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type%}
@@ -31,7 +44,7 @@
               {% include 'filter/_filter.html' with field=filter.form.fields.is_puppy name='is_puppy' title='Edad' selected=request.GET.is_puppy %}
           </div>
         </div>
-      <input type="submit" id="form" value="Filtrar" class="button is-primary is-rounded is-medium" />
+      <input type="submit" id="form" value="Lo tengo!" class="button is-primary is-rounded is-medium" />
     </form>
 
     <h1 class="title is-1 center">
