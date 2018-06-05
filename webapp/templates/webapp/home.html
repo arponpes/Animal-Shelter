@@ -30,17 +30,17 @@
       <h2 class="subtitle">¿Cómo te gustaría que fuera tu nuevo compañero de viajes? Selecciona entre algunos de los filtros y te mostraremos el que
         más se adapte a tus necesidades.</h2>
       </div>
-      <div class="columns">
-          <div class="column is-3 filter">
+      <div class="columns is-multiline">
+          <div class="column is-3-desktop is-half-mobile is-half-tablet">
             {% include 'filter/_filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type%}
           </div>
-          <div class="column is-3 filter">
+          <div class="column is-3-desktop is-half-mobile is-half-tablet">
             {% include 'filter/_filter.html' with field=filter.form.fields.sex name='sex' title='Sexo' selected=request.GET.sex %}
           </div>
-          <div class="column is-3 filter">
+          <div class="column is-3-desktop is-half-mobile is-half-tablet">
             {% include 'filter/_filter.html' with field=filter.form.fields.size name='size' title='Tamaño' selected=request.GET.size %}
           </div>
-          <div class="column is-3 filter">
+          <div class="column is-3-desktop is-half-mobile is-half-tablet">
               {% include 'filter/_filter.html' with field=filter.form.fields.is_puppy name='is_puppy' title='Edad' selected=request.GET.is_puppy %}
           </div>
         </div>
@@ -53,6 +53,7 @@
     <div class='columns is-multiline fixed-height'>
       {% for animal in animals %}
       <div class='column is-4-desktop is-half-tablet'>
+          <a class="" href="{% url 'animal_detail' slug=animal.slug %}">
         <div class="card">
           <div class="card-image">
             <figure class="image is-4by3">
@@ -108,10 +109,12 @@
               </div>
              
             </div>
-            <a class="button is-primary is-rounded" href="{% url 'animal_detail' slug=animal.slug %}">Conóceme!</a>
+            
           </div>
         </div>
+      
       </div>
+    </a>
       {% endfor %}
     </div>
   </div>

@@ -52,7 +52,8 @@ html {
 .cabecera {
   background: url("../img/cabecera.jpeg") no-repeat center fixed;
   width: 100%;
-  height: 100vh; }
+  height: 100vh;
+  background-size: cover; }
   @media screen and (max-width: 500px) {
     .cabecera {
       width: 100%;
@@ -63,5 +64,8 @@ html {
       width: 100%;
       height: 100vh;
       background-size: cover; } }
+
+.margin-top {
+  margin-top: 4rem; }
 
 /*# sourceMappingURL=styles.css.map */
