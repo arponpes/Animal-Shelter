@@ -1,4 +1,36 @@
-{% extends 'webapp/base.html' %}{% load static from staticfiles %} {% load widget_tweaks %} {% block content %} {% include 'webapp/_navbar.html' %}
+{% extends 'webapp/base.html' %}
+{% load static from staticfiles %}
+{% load widget_tweaks %}
+{% block content %}
+{% include 'webapp/_navbar.html' %}
+
+
+<div class="container">
+  <div class="content">
+    <section class="section">
+      <section class="section">
+        <section class="hero ">
+          <div class="hero-body">
+            <div class="container">
+              <h1 class="title logo">
+                ANIMAL SHELTER
+              </h1>
+            </div>
+          </div>
+        </section>
+        <div>
+        <p>La Protectora de animales destrong <strong> Animal Shelter </strong> es una asociación sin ánimo de lucro fundada en 2018 con la <strong> finalidad primordial
+          de la defensa y protección de los animales </strong> mediante la recogida de perros abandonados, promover su defensa mediante
+          campañas de concienciación, divulgación, y la gestión de nuestro refugio. Nuestra actividad principal es el cuidado,
+          a todos los niveles, de los animales que viven en nuestro refugio para conseguir que todos ellos se sientan queridos
+          y seguros. Aquí vivirán hasta que consigan una familia que les <strong> adopte de forma responsable </strong> y les asegure un futuro
+          feliz y una vida digna.
+        </p>
+      </section>
+  </div>
+</div>
+
+
 
 <div class="container">
   <section class="section">
@@ -32,4 +64,4 @@
   </section>
 </div>
 <script src="{% static 'js/protect_contact.js' %}"></script>
-{% endblock content %}
+<script src="{% static 'js/dropdown.js' %}"></script> {% endblock content %}

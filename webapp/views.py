@@ -50,10 +50,6 @@ class FrequentQuestionsView(TemplateView):
     template_name = 'webapp/frequent_questions.html'
 
 
-class AboutUsView(TemplateView):
-    template_name = 'webapp/about_us.html'
-
-
 class HelpView(TemplateView):
     template_name = 'webapp/help.html'
 

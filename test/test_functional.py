@@ -23,7 +23,6 @@ def test_login(browser, live_server):
     browser.find_element_by_id('size').click()
     browser.find_element_by_id('contact').click()
     browser.find_element_by_id('frequentQuestions').click()
-    browser.find_element_by_id('aboutUs').click()
     browser.find_element_by_id('help').click()
     browser.find_element_by_id('home').click()
     browser.find_element_by_id('sex').click()
