@@ -26,11 +26,13 @@
 <section class="section">
   <div class="container">
     <form action="{% url 'animals' %}" method="get">
-      <div class="column is-half-desktop">
-        <h2 class="subtitle">¿Cómo te gustaría que fuera tu nuevo compañero de viajes? Selecciona entre algunos de los filtros y te mostraremos el que
-        más se adapte a tus necesidades.</h2>
-      </div>
-      <div class="columns is-multiline is-mobile">
+      
+      <div class="box">
+          <div class="column is-half-desktop">
+              <h2 class="subtitle"><strong>¿Cómo te gustaría que fuera tu nuevo compañero de viajes</strong>? Selecciona entre algunos de los filtros y te mostraremos el que
+              más se adapte a tus necesidades.</h2>
+            </div>
+      <div class="columns is-multiline is-mobile margin-top ce">
           <div class="column is-3-desktop is-half-mobile is-half-tablet">
             {% include 'filter/_filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type%}
           </div>
@@ -44,13 +46,19 @@
               {% include 'filter/_filter.html' with field=filter.form.fields.is_puppy name='is_puppy' title='Edad' selected=request.GET.is_puppy %}
           </div>
         </div>
-      <input type="submit" id="form" value="Lo tengo!" class="button is-primary is-rounded is-medium" />
+        <div class="center">
+          <input type="submit" id="form" value="Lo tengo!" class="button is-primary is-rounded is-medium" />
+        </div>
+      </div>
     </form>
 
-    <h1 class="title is-1 center">
+    <h1 class="title is-1 center margin-top">
       Urge adopción o acogida
     </h1>
-    <div class='columns is-multiline fixed-height'>
+    <div class="column is-half-desktop">
+      <h2 class="subtitle">Algunos de nuestros amigos <strong> necesitan un hogar de foma urgente</strong> debido a problemas de adaptacion o falta espacio en el refugio.</h2>
+    </div>
+    <div class='columns is-multiline fixed-height margin-top'>
       {% for animal in animals %}
       <div class='column is-4-desktop is-half-tablet'>
           <a class="" href="{% url 'animal_detail' slug=animal.slug %}">
