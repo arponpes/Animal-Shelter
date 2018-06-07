@@ -1,101 +1,87 @@
-{% extends 'webapp/base.html' %} {% block content %} {% include 'webapp/_navbar.html' %}
+{% extends 'webapp/base.html' %}
+{% load static from staticfiles %}
+{% block content %}
+{% include 'webapp/_navbar.html'%}
 <div class="container">
-    <div class="content is-medium">
-        <section class="section">
-            <section class="hero ">
-                <div class="hero-body">
-                    <div class="container">
-                        <h1 class="title">
-                            1- ¿Por qué adoptar una mascota?
-                        </h1>
-
-                    </div>
+        <h1 class="title center margin-top"> Preguntas frecuentes</h1>
+    <div class="columns margin-top">
+        <div class="column is-half-desktop">
+            <div class="content is-medium margin-top">
+                <a class="title display">
+                    1- ¿Por qué adoptar una mascota?
+                </a>
+                <p class="show faq">
+                    La adopción de un perro o gato es la opción perfecta para poder dar una segunda oportunidad a un animal, que en la mayoría
+                    de los casos, ha sido abandonado. Por otro lado, al elegir adoptar en vez de comprar una mascota estamos
+                    evitando que la vida de una ser vivo se “mercantilice” para hacer negocio. Adoptar puede ser una decisión
+                    moral y también la vía perfecta para mejorar la convivencia entre el animal y el hombre. ¿No crees que
+                    los animales merecen un hogar?
+                </p>
+            </div>
+            <div class="content is-medium">
+                <a class="title display2">
+                    2- ¿Cómo elegir a la mascota ideal?
+                </a>
+                <p class="show2 faq">
+                    Cuando decidimos adoptar una mascota lo primero que nos preguntaremos es cómo elegir. Si ya sabemos que lo que queremos es
+                    un perro o un gato, lo mejor será encontrar uno que sea compatible con nuestro carácter y situación.
+                    Por ejemplo, el nivel de actividad del animal, si es un cachorro o tiene un carácter nervioso, deberemos
+                    tener especial cuidado en ejercitarle, sacarle más a pasear y dejar que suelte toda esa energía. Por
+                    tanto es importante que tengamos en cuenta el contexto de su nuevo hogar: ¿Convivirá la mascota con niños?
+                    ¿Tendrá un lugar dónde correr y jugar? ¿Tendremos tiempo para dedicarnos a la actividad al aire libre?…
+                    adopcion de mascotas Además de todo esto, el ingrediente emocional es fundamental, tenemos que sentir
+                    que hay una conexión entre el animal y nosotros: una posibilidad de ser grandes compañeros. Nosotros
+                    permitimos un periodo de pre-adopción para que tengamos tiempo de responder a estas preguntas y tener
+                    un periodo de adaptación antes de la adopción definitiva.
+                </p>
+            </div>
+            <div class="content is-medium">
+                <a class="title display3">
+                    3- ¿Cuales son los requisitos para adoptar a una mascota?
+                </a>
+                <div class="show3 faq">
+                    <ul>
+                        <li>
+                            <strong> Ser mayor de edad.</strong> Se presentará el DNI de identificación.</li>
+                        <li>
+                            <strong> Comprobante de domicilio.</strong> Documento que demuestre que la persona es propietaria del
+                            domicilio donde vivirá la mascota o, en caso de alquiler, que el arrendatario permite residir
+                            con animales.</li>
+                        <li>
+                            <strong> Contrato de adopción.</strong> Debes firmar un acta que te compromete a:</li>
+                        <ul>
+                            <li>Cuidar de tu mascota y mantenerla en unas condiciones óptimas de espacio, tiempo, alimentación,
+                                ejercicio...
+                            </li>
+                            <li>Dotarle de los cuidados veterinarios que necesite. La mascota se entregará desparasitada y con
+                                las correspondientes vacunas, los perros llevarán además microchip.</li>
+                            <li>No destinarlo a la cría o reproducción.</li>
+                            <li>Notificar cualquier cambio a la asociación (pérdida, muerte...).</li>
+                            <li>Si no puedes hacerte cargo de él nunca lo abandonarás, lo devolverás a la asociación.</li>
+                        </ul>
+                    </ul>
                 </div>
-            </section>
-            <p>
-                La adopción de un perro o gato es la opción perfecta para poder dar una segunda oportunidad a un animal, que en la mayoría
-                de los casos, ha sido abandonado. Por otro lado, al elegir adoptar en vez de comprar una mascota estamos
-                evitando que la vida de una ser vivo se “mercantilice” para hacer negocio. Adoptar puede ser una decisión
-                moral y también la vía perfecta para mejorar la convivencia entre el animal y el hombre. ¿No crees que los
-                animales merecen un hogar?
-            </p>
-        </section>
-    </div>
-    <div class="content is-medium">
-        <section class="section">
-            <section class="hero ">
-                <div class="hero-body">
-                    <div class="container">
-                        <h1 class="title">
-                            2- ¿Cómo elegir a la mascota ideal?
-                        </h1>
-
-                    </div>
-                </div>
-            </section>
-            <p>
-                Cuando decidimos adoptar una mascota lo primero que nos preguntaremos es cómo elegir. Si ya sabemos que lo que queremos es
-                un perro o un gato, lo mejor será encontrar uno que sea compatible con nuestro carácter y situación. Por
-                ejemplo, el nivel de actividad del animal, si es un cachorro o tiene un carácter nervioso, deberemos tener
-                especial cuidado en ejercitarle, sacarle más a pasear y dejar que suelte toda esa energía. Por tanto es importante
-                que tengamos en cuenta el contexto de su nuevo hogar: ¿Convivirá la mascota con niños? ¿Tendrá un lugar dónde
-                correr y jugar? ¿Tendremos tiempo para dedicarnos a la actividad al aire libre?… adopcion de mascotas Además
-                de todo esto, el ingrediente emocional es fundamental, tenemos que sentir que hay una conexión entre el animal
-                y nosotros: una posibilidad de ser grandes compañeros. Nosotros permitimos un periodo de pre-adopción para
-                que tengamos tiempo de responder a estas preguntas y tener un periodo de adaptación antes de la adopción
-                definitiva.
-            </p>
-        </section>
-    </div>
-    <div class="content is-medium">
-        <section class="section">
-            <section class="hero ">
-                <div class="hero-body">
-                    <div class="container">
-                        <h1 class="title">
-                            3- ¿Cuales son los requisitos para adoptar a una mascota?
-                        </h1>
-                    </div>
-                </div>
-            </section>
-            <ul>
-                <li>
-                    <strong> Ser mayor de edad.</strong> Se presentará el DNI de identificación.</li>
-                <li>
-                    <strong> Comprobante de domicilio.</strong> Documento que demuestre que la persona es propietaria del domicilio
-                    donde vivirá la mascota o, en caso de alquiler, que el arrendatario permite residir con animales.</li>
-                <li>
-                    <strong> Contrato de adopción.</strong> Debes firmar un acta que te compromete a:</li>
-                <ul>
-                    <li>Cuidar de tu mascota y mantenerla en unas condiciones óptimas de espacio, tiempo, alimentación, ejercicio...</li>
-                    <li>Dotarle de los cuidados veterinarios que necesite. La mascota se entregará desparasitada y con las correspondientes
-                        vacunas, los perros llevarán además microchip.</li>
-                    <li>No destinarlo a la cría o reproducción.</li>
-                    <li>Notificar cualquier cambio a la asociación (pérdida, muerte...).</li>
-                    <li>Si no puedes hacerte cargo de él nunca lo abandonarás, lo devolverás a la asociación.</li>
-                </ul>
-            </ul>
-        </section>
-    </div>
-    <div class="content is-medium">
-        <section class="section">
-            <section class="hero ">
-                <div class="hero-body">
-                    <div class="container">
-                        <h1 class="title">
-                            4- ¿Y después de adoptar?
-                        </h1>
-                    </div>
-                </div>
-            </section>
-            <p>
-                Es importante contar con tiempo para adaptarnos a la nueva situación, tanto para el animal como para nosotros. adopcion de
-                perros Lo recomendable es que desde el primer momento las normas estén claras, sepa dónde comer, dónde dormir,
-                dónde hacer sus necesidades, cómo comportarse… pero paciencia, el periodo de adaptación lleva su tiempo,
-                más teniendo en cuenta que en mucho de los casos los perros han sido víctimas de malos tratos o abandono
-                y tienen que recuperar la confianza.
-            </p>
-        </section>
+            </div>
+            <div class="content is-medium">
+                <a class="title display4">
+                    4- ¿Y después de adoptar?
+                </a>
+                <p class="show4 faq">
+                    Es importante contar con tiempo para adaptarnos a la nueva situación, tanto para el animal como para nosotros. adopcion de
+                    perros Lo recomendable es que desde el primer momento las normas estén claras, sepa dónde comer, dónde
+                    dormir, dónde hacer sus necesidades, cómo comportarse… pero paciencia, el periodo de adaptación lleva
+                    su tiempo, más teniendo en cuenta que en mucho de los casos los perros han sido víctimas de malos tratos
+                    o abandono y tienen que recuperar la confianza.
+                </p>
+            </div>
+        </div>
+   
+    <div class="column is-half-desktop is-hidden-mobile">
+        <figure class="image is-1by1">
+            <img src='{% static "img/faq.jpeg" %}' alt="">
+        </figure>
     </div>
 </div>
+</div>
+<script src="{% static 'js/faq.js' %}"></script> 
 {% endblock content %}

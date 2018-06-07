@@ -44,8 +44,8 @@
             <div class="content">
               <p>{{animal.description|truncatechars_html:175 }}</p>
             </div>
-            <div class="columns">
-              <div class="column is-half card-down">
+            <div class="columns is-mobile">
+              <div class="column is-half card-down is-half-mobile">
                 <Strong>
                   <label>Animal:</label>
                 </Strong>
@@ -62,15 +62,11 @@
                 {{animal.get_size_display}}
                 <br>
               </div>
-              <div class="column is-half">
+              <div class="column is-half is-half-mobile">
                 <strong>
                   <p>Fecha nacimiento</p>
                 </strong>
                 <time>{{animal.birth_date}}</time>
-                <strong>
-                  <p>Fecha de llegada</p>
-                </strong>
-                <time>{{animal.entry_date}}</time>
               </div>
             </div>
           </div>

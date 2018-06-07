@@ -17,9 +17,9 @@
 <section class="hero is-small is-primary is-bold frase">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title center is-2">
+      <h2 class="title center is-2">
         Encuéntrame
-      </h1>
+      </h2>
     </div>
   </div>
 </section>
@@ -31,7 +31,7 @@
               <h2 class="subtitle"><strong>¿Cómo te gustaría que fuera tu nuevo compañero de viajes</strong>? Selecciona entre algunos de los filtros y te mostraremos el que
               más se adapte a tus necesidades.</h2>
             </div>
-      <div class="columns is-multiline is-mobile margin-top ce">
+      <div class="columns is-multiline is-mobile margin-top">
           <div class="column is-3-desktop is-half-mobile is-half-tablet">
             {% include 'filter/_filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type%}
           </div>
@@ -51,9 +51,9 @@
       </div>
     </form>
 
-    <h1 class="title is-1 center margin-top">
+    <h2 class="title is-1 center margin-top">
       Urge adopción o acogida
-    </h1>
+    </h2>
     <div class="column is-half-desktop">
       <h2 class="subtitle">Algunos de nuestros amigos <strong> necesitan un hogar de foma urgente</strong> debido a problemas de adaptacion o falta espacio en el refugio.</h2>
     </div>
@@ -64,7 +64,7 @@
         <div class="card">
           <div class="card-image">
             <figure class="image is-4by3">
-                <img src="{{ animal.image.url }}" />                
+                <img src="{{ animal.image.crop.470x350 }}" />                
             </figure>
           </div>
           <div class="card-content">
@@ -78,7 +78,7 @@
             <div class="content">
               <p>{{animal.description|truncatechars_html:175 }}</p>
             </div>
-            <div class="columns">
+            <div class="columns is-mobile">
               <div class="column is-half is-half-mobile">
                 <Strong>
                   <label>Mascota:</label>
@@ -103,17 +103,10 @@
                   <p>Fecha nacimiento</p>
                 </strong>
                 <time>{{animal.birth_date}}</time>
-                <strong>
-                  <p>Fecha de llegada</p>
-                </strong>
-                <time>{{animal.entry_date}}</time>
               </div>
-             
             </div>
-            
           </div>
         </div>
-      
       </div>
     </a>
       {% endfor %}
