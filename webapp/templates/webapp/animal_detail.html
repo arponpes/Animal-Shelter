@@ -1,8 +1,10 @@
-{% extends 'webapp/base.html' %} {% block content %} {% include 'webapp/_navbar.html' %}
-
+{% extends 'webapp/base.html' %}
+{% load static from staticfiles %}
+{% load widget_tweaks %}
+{% block content %}
+{% include 'webapp/_navbar.html' %}
 <section class="section">
     <div class="container margin-top">
-
         <div class="columns">
             <div class="column">
                 <figure class="image">
@@ -17,33 +19,49 @@
                 <span class="tag is-danger">{{animal.state}}</span>
                 </h1>
                 {% endif %}
-
                 <h1 class="subtitle">Datos</h2>
                     <p>
                         <strong> Fecha de nacimiento</strong>
                     </p>
                     <p>{{animal.birth_date}}</p>
                     <p>
-                            <strong>Raza</strong>
-                        </p>
+                        <strong>Raza</strong>
+                    </p>
                     <p>
                         {{animal.get_animal_type_display}}
                     </p>
                     <p>
-                            <strong>Tamaño</strong>
-                        </p>
+                        <strong>Tamaño</strong>
+                    </p>
                     <p>
                         {{animal.get_size_display}}
                     </p>
                     <p>
-                            <strong>Descripcion</strong>
-                        </p>
-
+                        <strong>Descripcion</strong>
+                    </p>
                     {{animal.description}}
+                    <form method="post" id="contact-form" class="form" enctype="multipart/form-data">{% csrf_token %}
+                        <div class="field {% if form.name.errors %}error{% endif %}">
+                            <label class="label">Nombre</label>
+                            {% render_field form.name|add_class:"input" placeholder='Nombre' %} {{ form.name.errors.0 }}
+                        </div>
+                        <div class="field {% if form.subject.errors %}error{% endif %}">
+                            <label class="label">Asunto</label>
+                            {% render_field form.subject|add_class:"input" placeholder='Asunto' value=animal.name %} {{ form.subject.errors.0 }}
+                        </div>
+                        <div class="field {% if form.email.errors %}error{% endif %}">
+                            <label class="label">Email</label>
+                            {% render_field form.email|add_class:"input" placeholder='Email' %} {{ form.email.errors.0 }}
+                        </div>
+                        <div class="field {% if form.message.errors %}error{% endif %}">
+                            <label class="label">Mensaje</label>
+                            {% render_field form.message|add_class:"textarea" placeholder='Mensaje' %} {{ form.message.errors.0 }}
+                        </div>
+                        <button class="button is-link" id="btn-send" type="submit">Enviar</button>
+                    </form>
             </div>
         </div>
-
-
     </div>
 </section>
+<script src="{% static 'js/protect_contact.js' %}"></script>
 {% endblock content %}
