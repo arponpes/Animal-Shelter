@@ -1,3 +1,7 @@
-$(".delete").on('click', function () {
-    $(".message").toggle()
+$( document ).ready(function() {
+    $(".modal").addClass("is-active");  
 });
+
+$('.delete').click(function(){
+    $('.modal').toggle();
+})

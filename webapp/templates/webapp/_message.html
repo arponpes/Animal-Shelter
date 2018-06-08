@@ -1,19 +1,15 @@
 {% if messages %}
 {% for message in messages %}
-<article class="message inf is-success">
-  <div class="columns">
-    <div class="column is-4-desktop is-1-tablet is-1-mobile"></div>
-
-    <div class="column">
-      <div class="message-header">
-        <p>Información</p>
-        <button class="delete" aria-label="delete"></button>
+<div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Informacion</p>
+            <button class="delete" aria-label="close"></button>
+          </header>
+          <section class="modal-card-body">
+                <p{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
+          </section>
+        </div>
       </div>
-      <div class="message-body">
-        <p{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
-      </div>
-    </div>
-    <div class="column is-4-desktop is-1-tablet is-1-mobile"></div>
-  </div>
-</article>
 {% endfor %} {% endif %}
