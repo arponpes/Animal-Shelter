@@ -1,0 +1,147 @@
+$button-color:#FC4A1A;
+
+// @import "../../node_modules/bulma/sass/utilities/initial-variables";
+// @import "../../node_modules/bulma/sass/utilities/functions";
+// @import "../../node_modules/bulma/sass/utilities/derived-variables";
+// @import "../../node_modules/bulma/sass/layout/footer.sass";
+// @import "../../node_modules/bulma/bulma";
+html {
+    overflow-y: auto;
+}
+
+.logo {
+    color: #4abdac;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+.navbar {
+    height: 3.5rem;
+}
+
+.foot {
+    font-size: 2rem;
+}
+
+.center {
+    text-align: center;
+}
+
+.foot-icon {
+    font-size: 1.5em;
+    color: black;
+}
+
+.error-icon {
+    font-size: 4rem;
+    color: black;
+}
+
+.dates {
+    border-left: 1px solid;
+}
+
+.eror404title {
+    font-size: 5rem;
+}
+
+.eror404subtitle {
+    font-size: 1.5rem;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.main {
+    flex-grow: 1;
+}
+
+.fixed-height .card {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+}
+
+.fixed-height .card .card-content {
+    height: 100%;
+}
+
+.form-fiel {
+    width: 100%;
+}
+
+$break-small: 500px;
+$break-large: 1200px;
+.cabecera {
+    background: url('../img/cabecera.jpeg') no-repeat center fixed;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    @media screen and (max-width: $break-small) {
+        width: 100%;
+        height: 100vh;
+        background-size: 180% 100%;
+    }
+    @media screen and (min-width: $break-large) {
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+    }
+}
+
+.margin-top {
+    margin-top: 4rem;
+}
+
+.faq {
+    display: none;
+}
+.contenedor {
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+}
+
+.item {
+    flex-basis: auto;
+    padding: 5px;
+    width: auto;
+    height: 150px;
+    margin: 10px;
+}
+
+
+@import "../../node_modules/bulma/sass/utilities/initial-variables";
+@import "../../node_modules/bulma/sass/utilities/functions";
+
+// 2. Set your own initial variables
+// Update blue
+$fresh: #4abdac;
+// Add pink and its invert
+$vermillion: #FC4A1A;
+$sunshine: #F7B733;
+$clean: #DFDCE3;
+// Add a serif family
+
+// 3. Set the derived variables
+// Use the new pink as the primary color
+$primary: $fresh;
+// Use the existing orange as the danger color
+// Use the new serif family
+
+$light: $clean;
+
+// 5. Add new color variables to the color map.
+@import "../../node_modules/bulma/sass/utilities/derived-variables";
+
+// 6. Import the rest of Bulma
+@import "../../node_modules/bulma/bulma";

@@ -1,12 +1,25 @@
-{% extends 'webapp/base.html' %} {% block content %} {% include 'webapp/_navbar.html' %}
-<section class="hero is-medium is-danger is-bold frase">
+{% extends 'webapp/base.html' %}{% load static from staticfiles %} {% block content %}{% include 'webapp/_navbar.html' %}
+<div class="cabecera">
+  <br>
+  <section class="hero is-medium is-transparent is-bold frase fixed">
+    <div class="hero-body">
+        {% include "webapp/_message.html" %}
+      <div class="container">
+        <h1 class="title">
+          “Hasta que no hayas amado a un animal, parte de tu alma estará dormida”.
+        </h1>
+        <h2 class="subtitle">
+          Anatole France.
+        </h2>
+      </div>
+    </div>
+  </section>
+</div>
+<section class="hero is-small is-primary is-bold frase">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">
-        “Hasta que no hayas amado a un animal, parte de tu alma estará dormida”.
-      </h1>
-      <h2 class="subtitle">
-        Anatole France.
+      <h2 class="title center is-2">
+        Encuéntrame
       </h2>
     </div>
   </div>
@@ -14,42 +27,45 @@
 <section class="section">
   <div class="container">
     <form action="{% url 'animals' %}" method="get">
-      <h1 class="title is-1 center">
-        Encuéntrame
-      </h1>
-      <div class="columns">
-          <div class="column is-3 filter">
+      <div class="box">
+          <div class="column is-half-desktop">
+              <h2 class="subtitle"><strong>¿Cómo te gustaría que fuera tu nuevo compañero de viajes</strong>? Selecciona entre algunos de los filtros y te mostraremos el que
+              más se adapte a tus necesidades.</h2>
+            </div>
+      <div class="contenedor">
+            <div class="item">
             {% include 'filter/_filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type%}
           </div>
-          <div class="column is-3 filter">
+          <div class="item">
             {% include 'filter/_filter.html' with field=filter.form.fields.sex name='sex' title='Sexo' selected=request.GET.sex %}
           </div>
-          <div class="column is-3 filter">
+          <div class="item">
             {% include 'filter/_filter.html' with field=filter.form.fields.size name='size' title='Tamaño' selected=request.GET.size %}
           </div>
-          <div class="column is-3 filter">
+          <div class="item">
               {% include 'filter/_filter.html' with field=filter.form.fields.is_puppy name='is_puppy' title='Edad' selected=request.GET.is_puppy %}
           </div>
         </div>
-      <input type="submit" id="form" value="Filtrar" class="button is-primary is-rounded is-medium" />
+        <div class="center">
+          <input type="submit" id="form" value="Lo tengo!" class="button is-primary is-rounded is-medium" />
+        </div>
+      </div>
     </form>
 
-    <h1 class="title is-1 center">
+    <h2 class="title is-1 center margin-top">
       Urge adopción o acogida
-    </h1>
-    <div class='columns is-multiline fixed-height'>
+    </h2>
+    <div class="column is-half-desktop">
+      <h2 class="subtitle">Algunos de nuestros amigos <strong> necesitan un hogar de foma urgente</strong> debido a problemas de adaptacion o falta espacio en el refugio.</h2>
+    </div>
+    <div class='columns is-multiline fixed-height margin-top'>
       {% for animal in animals %}
       <div class='column is-4-desktop is-half-tablet'>
+          <a class="" href="{% url 'animal_detail' slug=animal.slug %}">
         <div class="card">
           <div class="card-image">
             <figure class="image is-4by3">
-                {% if animal.image %}
-                <img src="{{ animal.image.url }}" />
-                
-                {% else %}
-                <img src="https://loremflickr.com/300/240/dog?random={{animal.slug}}" alt="Placeholder image">
-                {% endif %}
-                
+                <img src="{{ animal.image.crop.470x350 }}" />                
             </figure>
           </div>
           <div class="card-content">
@@ -63,7 +79,7 @@
             <div class="content">
               <p>{{animal.description|truncatechars_html:175 }}</p>
             </div>
-            <div class="columns">
+            <div class="columns is-mobile">
               <div class="column is-half is-half-mobile">
                 <Strong>
                   <label>Mascota:</label>
@@ -88,19 +104,15 @@
                   <p>Fecha nacimiento</p>
                 </strong>
                 <time>{{animal.birth_date}}</time>
-                <strong>
-                  <p>Fecha de llegada</p>
-                </strong>
-                <time>{{animal.entry_date}}</time>
               </div>
-             
             </div>
-            <a class="button is-primary is-rounded" href="{% url 'animal_detail' slug=animal.slug %}">Conóceme!</a>
           </div>
         </div>
       </div>
+    </a>
       {% endfor %}
     </div>
   </div>
 </section>
+<script src="{% static 'js/message.js' %}"></script>
 {% endblock content %}

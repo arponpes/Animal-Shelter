@@ -14,13 +14,14 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
     crossorigin="anonymous">
     <script src="{% static 'js/burger.js' %}"></script>
+    <link rel="shortcut icon" type="image/png" href="img/favicon.ico"/>
 </head>
 <body>
     <div class="app">
         <main class="main">
     {% block content %}
     {% endblock %}
-        </main>
+</main>
     {% include 'webapp/_footer.html' %}
     </div>
 </body>

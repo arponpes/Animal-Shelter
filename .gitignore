@@ -1,2 +1,4 @@
 __sized__
 geckodriver.log
+.sass-cache
+node_modules

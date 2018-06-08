@@ -1,4 +1,3 @@
-<div class="control">
     <dl>
         <dt>
             <h1 class="title">{{title}}</h1>
@@ -6,9 +5,8 @@
         {% for key,value in field.widget.choices %}
         <dt>
             <label class="radio">
-                <input type="radio" id="{{name}}" class="{{name}}" name="{{name}}" value="{{ key }}" {% if key == selected %} checked {% endif %}> {{ value }}
+                <input type="radio" id="{{name}}" class="{{name}}" name="{{name}}" value="{{ key }}" {% if key == selected %} checked {% endif %}> <span> <strong> {{ value }} </strong> </span>
             </label>
         </dt>
         {% endfor %}
     </dl>
-</div>

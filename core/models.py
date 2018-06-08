@@ -1,10 +1,20 @@
+import os
 from django.db import models
 from django.urls import reverse
 
 from autoslug import AutoSlugField
 from versatileimagefield.fields import VersatileImageField
-
+from versatileimagefield.placeholder import OnDiscPlaceholderImage
+from django.conf import settings
 from core.services import generate_unique_file_path
+
+
+NO_IMAGE_PLACEHOLDER = OnDiscPlaceholderImage(
+    path=os.path.join(settings.PROJECT_DIR,
+                      'static',
+                      'img',
+                      'no-image-placeholder.png'),
+)
 
 
 class TimeStampleModel(models.Model):
@@ -40,7 +50,8 @@ class Animal(TimeStampleModel):
     departure_date = models.DateField('Fecha de salida', blank=True, null=True)
     description = models.TextField('Descripcion', blank=True, null=True)
     image = VersatileImageField('Imagen', null=True, blank=True,
-                                upload_to=generate_unique_file_path)
+                                upload_to=generate_unique_file_path,
+                                placeholder_image=NO_IMAGE_PLACEHOLDER)
     size = models.CharField('Tamaño',
                             max_length=50,
                             choices=SIZE_CHOICES, default='MEDIUM')

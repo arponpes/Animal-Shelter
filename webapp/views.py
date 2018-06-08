@@ -50,10 +50,6 @@ class FrequentQuestionsView(TemplateView):
     template_name = 'webapp/frequent_questions.html'
 
 
-class AboutUsView(TemplateView):
-    template_name = 'webapp/about_us.html'
-
-
 class HelpView(TemplateView):
     template_name = 'webapp/help.html'
 
@@ -66,7 +62,7 @@ class ContactView(generic.FormView):
     def form_valid(self, form):
         form.send_email()
         messages.success(self.request,
-                         'Gracias por enviar contactar con nosotros!')
+                         'Gracias por contactar con nosotros!')
         return super(ContactView, self).form_valid(form)
 
     def form_invalid(self, *args, **kwargs):
@@ -77,9 +73,24 @@ class ContactView(generic.FormView):
         return reverse_lazy('home')
 
 
-class AnimalDetail(DetailView):
+class AnimalDetail(DetailView, generic.FormView):
     model = Animal
     template_name = 'webapp/animal_detail.html'
+    form_class = forms.ContactForm
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        form.send_email()
+        messages.success(self.request,
+                         'Gracias por contactar con nosotros!')
+        return super(AnimalDetail, self).form_valid(form)
+
+    def form_invalid(self, *args, **kwargs):
+        messages.error(self.request, 'Error enviando el formulario')
+        return super().form_invalid(*args, **kwargs)
+
+    def get_success_url(self):
+        return reverse_lazy('home')
 
     def get_queryset(self):
         return Animal.objects.exclude(state='UNAVAILABLE')

@@ -1,0 +1,26 @@
+{
+  "name": "animal-shelter",
+  "version": "1.0.0",
+  "description": "[![Coverage Status](https://coveralls.io/repos/github/arponpes/Animal-Shelter/badge.svg?branch=feat%2Ftest)](https://coveralls.io/github/arponpes/Animal-Shelter?branch=feat%2Ftest) [![Build Status](https://travis-ci.org/arponpes/Animal-Shelter.svg?branch=master)](https://travis-ci.org/arponpes/Animal-Shelter)",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css": "sass --watch static/css/styles.scss:static/css/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arponpes/Animal-Shelter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arponpes/Animal-Shelter/issues"
+  },
+  "homepage": "https://github.com/arponpes/Animal-Shelter#readme",
+  "devDependencies": {
+    "bulma": "^0.7.1"
+  }
+}

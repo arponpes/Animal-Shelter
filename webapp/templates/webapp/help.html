@@ -1,49 +1,48 @@
-{% extends 'webapp/base.html' %} {% load static from staticfiles %} {% block content %} {% include 'webapp/_navbar.html' %}
-<a href="https://www.paypal.com/es/home">
-    <section class="hero is-danger">
-        <div class="hero-body">
-            <div class="container">
-
-                <h1 class="title">
-                    Ayudanos con la comida!
-                </h1>
-
-                <h2 class="subtitle">
-                    Pienso-agua-premios
-                </h2>
-                <img src="{% static 'img/food.jpg' %}" alt="">
+{% extends 'webapp/base.html' %}
+{% load static from staticfiles %}
+{% block content %}
+{% include 'webapp/_navbar.html' %}
+<div class="container">
+    <section class="section">
+        <h1 class="title center margin-top is-1">Donaciones</h1>
+        <div class="columns fixed-height is-multiline">
+            <div class="column is-4-desktop is-12-tablet">
+                <h1 class="title">Para comida!</h1>
+                <h2 class="subtitle">Nuetros amiguitos tambien necesitan comer y beber</h2>
+                <figure class="image image is-4by3">
+                    <img  src='{% static "img/food.jpg" %}' alt="Placeholder image">
+                </figure>
+                <br>
+                <a href="http://www.paypal.com" class="button is-info is-outlined"> Donar para comida</a>
+            </div>
+            <div class="column is-4-desktop is-12-tablet">
+                <h1 class="title">Para veterinario!</h1>
+                <h2 class="subtitle">Nuetros amiguitos tambien necesitan ayuda medica</h2>
+                <figure class="image image is-4by3">
+                    <img src='{% static "img/vet.jpg" %}' alt="Placeholder image">
+                </figure>
+                <br>
+                <a href="http://www.paypal.com" class="button is-info is-outlined"> Donar para veterinario</a>
+            </div>
+            <div class="column is-4-desktop is-12-tablet">
+                <h1 class="title">Para gastos generales!</h1>
+                <h2 class="subtitle">El refugio tiene diferentes gastos para mantenerse abierto.</h2>
+                <figure class="image image is-4by3">
+                    <img src='{% static "img/cat.jpeg" %}' alt="Placeholder image">
+                </figure>
+                <br>
+                <a href="http://www.paypal.com" class="button is-info is-outlined"> Donar para gastos generales</a>
             </div>
         </div>
-    </section>
-</a>
-<a href="https://www.paypal.com/es/home">
-    <section class="hero is-warning">
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title">
-                    Ayudanos a pagar los gastos medicos!
-                </h1>
-                <h2 class="subtitle">
-                    Los aniamlitos tambien necesitan ir al medico
-                </h2>
-                <img src="{% static 'img/vet.jpg' %}" alt="">
-            </div>
+        <h1 class="title center margin-top is-1">Voluntarios</h1>
+        <div class="column is-half-desktop">
+            <div class="content is-large">
+            <p>Si estas interesado en colaborar con nosotros de foma voluntario estariamos muy agradecidos. Puedes ponerte en contacto
+                con nosotros en la pestanha de
+                <a href="{% url 'contact' %}"> contacto.</a>
+            </p>
+        </div>
         </div>
     </section>
-</a>
-<a href="https://www.paypal.com/es/home">
-    <section class="hero is-link">
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title">
-                    Ayudanos con los gastos generales!
-                </h1>
-                <h2 class="subtitle">
-                    El refugio tiene direferntes gastos que necesitamos pagar.
-                </h2>
-                <img src="{% static 'img/cat.jpg' %}" alt="">
-            </div>
-        </div>
-    </section>
-</a>
+</div>
 {% endblock content %}

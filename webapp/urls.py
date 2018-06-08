@@ -7,7 +7,6 @@ urlpatterns = [
     path('mascotas/', views.AnimalsView.as_view(), name='animals'),
     path('preguntas-frequentes', views.FrequentQuestionsView.as_view(),
          name='frequentQuestions'),
-    path('nosotros', views.AboutUsView.as_view(), name='aboutUs'),
     path('ayuda', views.HelpView.as_view(), name='help'),
     path('contacto', views.ContactView.as_view(), name='contact'),
     re_path(r'^mascota/(?P<slug>[\w-]+)/$', views.AnimalDetail.as_view(),
