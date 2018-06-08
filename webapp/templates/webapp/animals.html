@@ -1,29 +1,30 @@
 {% extends 'webapp/base.html' %}{% load static from staticfiles %} {% block content %} {% include 'webapp/_navbar.html' %}
 
-<section class="section">
-  <div class="container margin-top">
+<section class="section margin-top">
+  <div class="container">
     <form action="" id="form" method="get">
       <h1 class="title is-1 center">
         Mascotas!
       </h1>
       <div class="box">
-      <div class="columns is-multiline is-mobile">
-          <div class="column is-3-desktop is-half-mobile is-half-tablet">
+      <div class="contenedor">
+          <div class="item">
             {% include 'filter/_filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type%}
           </div>
-          <div class="column is-3-desktop is-half-mobile is-half-tablet">
+          <div class="item">
             {% include 'filter/_filter.html' with field=filter.form.fields.sex name='sex' title='Sexo' selected=request.GET.sex %}
           </div>
-          <div class="column is-3-desktop is-half-mobile is-half-tablet">
+          <div class="item">
             {% include 'filter/_filter.html' with field=filter.form.fields.size name='size' title='Tamaño' selected=request.GET.size %}
           </div>
-          <div class="column is-3-desktop is-half-mobile is-half-tablet">
+          <div class="item">
               {% include 'filter/_filter.html' with field=filter.form.fields.is_puppy name='is_puppy' title='Edad' selected=request.GET.is_puppy %}
           </div>
         </div>
       </div>        
     </form>
-    <div class='columns is-multiline fixed-height margin-top'>
+    <div class=" margin-top">
+    <div class='columns is-multiline fixed-height'>
       {% for animal in animals %}
       <div class='column is-4-desktop is-half-tablet'>
           <a class="" href="{% url 'animal_detail' slug=animal.slug %}">
@@ -75,6 +76,8 @@
       </div>
       {% endfor %}
     </div>
+    </div>
+
     {% include 'webapp/_pagination.html' %}
 </section>
 <script src="{% static 'js/filters.js' %}"></script> {% endblock content %}

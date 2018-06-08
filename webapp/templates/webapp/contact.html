@@ -34,7 +34,7 @@
 
 <div class="container">
   <section class="section">
-    <h1 class="title">Contacta con nosotros</h1>
+    <h2 class="title is-1">Contacta con nosotros</h2>
     <h2 class="subtitle">Cualquier duda que tengas, sonbre la adopcion, voluntariado, donaciones...</h2>
     <form method="post" id="contact-form" class="form" enctype="multipart/form-data">{% csrf_token %}
 
@@ -59,7 +59,7 @@
         {% render_field form.message|add_class:"textarea" placeholder='Mensaje' %} {{ form.message.errors.0 }}
       </div>
 
-      <button class="button is-link" id="btn-send" type="submit">Enviar</button>
+      <button class="button is-primary" id="btn-send" type="submit">Enviar</button>
     </form>
   </section>
 </div>
