@@ -1,15 +1,16 @@
-// @import "/home/aaron/node_modules/bulma/sass/utilities/initial-variables";
-// @import "/home/aaron/node_modules/bulma/sass/utilities/functions";
-// @import "/home/aaron/node_modules/bulma/sass/utilities/derived-variables";
+@import "/home/aaron/node_modules/bulma/sass/utilities/initial-variables";
+@import "/home/aaron/node_modules/bulma/sass/utilities/functions";
+@import "/home/aaron/node_modules/bulma/sass/utilities/derived-variables";
+@import "/home/aaron/node_modules/bulma/sass/layout/footer.sass";
 // @import "/home/aaron/node_modules/bulma/bulma";
 html {
+
     overflow-y: auto;
 }
 
 .logo {
     font-family: 'Luckiest Guy', cursive;
 }
-
 .navbar {
     height: 3.5rem;
 }
@@ -78,7 +79,6 @@ $break-large: 1200px;
     @media screen and (max-width: $break-small) {
         width: 100%;
         height: 100vh;
-        
         background-size: 180% 100%;
     }
     @media screen and (min-width: $break-large) {
@@ -87,9 +87,11 @@ $break-large: 1200px;
         background-size: cover;
     }
 }
-.margin-top{
-margin-top: 4rem;
+
+.margin-top {
+    margin-top: 4rem;
 }
-.faq{
+
+.faq {
     display: none;
 }

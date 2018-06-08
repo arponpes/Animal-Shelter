@@ -13,6 +13,3 @@ $(".size").on('click', function () {
 $(".is_puppy").on('click', function () {
     $("#form").submit();
 });
-$(".display").on('click', function () {
-    $(".box").toggle()
-});

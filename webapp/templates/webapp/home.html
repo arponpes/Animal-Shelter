@@ -1,18 +1,19 @@
-{% extends 'webapp/base.html' %} {% block content %}{% include 'webapp/_navbar.html' %}
+{% extends 'webapp/base.html' %}{% load static from staticfiles %} {% block content %}{% include 'webapp/_navbar.html' %}
 <div class="cabecera">
   <br>
-    <section class="hero is-medium is-transparent is-bold frase fixed">
-        <div class="hero-body">
-          <div class="container">
-            <h1 class="title">
-              “Hasta que no hayas amado a un animal, parte de tu alma estará dormida”.
-            </h1>
-            <h2 class="subtitle">
-              Anatole France.
-            </h2>
-          </div>
-        </div>
-      </section>
+  <section class="hero is-medium is-transparent is-bold frase fixed">
+    <div class="hero-body">
+        {% include "webapp/_message.html" %}
+      <div class="container">
+        <h1 class="title">
+          “Hasta que no hayas amado a un animal, parte de tu alma estará dormida”.
+        </h1>
+        <h2 class="subtitle">
+          Anatole France.
+        </h2>
+      </div>
+    </div>
+  </section>
 </div>
 <section class="hero is-small is-primary is-bold frase">
   <div class="hero-body">
@@ -33,7 +34,9 @@
             </div>
       <div class="columns is-multiline is-mobile margin-top">
           <div class="column is-3-desktop is-half-mobile is-half-tablet">
+            <div class="center-div">
             {% include 'filter/_filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type%}
+          </div>
           </div>
           <div class="column is-3-desktop is-half-mobile is-half-tablet">
             {% include 'filter/_filter.html' with field=filter.form.fields.sex name='sex' title='Sexo' selected=request.GET.sex %}
@@ -113,4 +116,5 @@
     </div>
   </div>
 </section>
+<script src="{% static 'js/message.js' %}"></script>
 {% endblock content %}
