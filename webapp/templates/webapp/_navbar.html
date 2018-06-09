@@ -7,7 +7,7 @@
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item" href="{% url 'home' %}">
-        <p class="logo">Animal Shelter</p>
+        <p class="logo-font">Animal Shelter</p>
       </a>
       <div class="navbar-burger burger" data-target="navbar_content">
         <span></span>
@@ -21,8 +21,13 @@
         <a class="navbar-item {% if request.get_full_path == home_url %}is-active{% endif %}" id="home" href="{% url 'home' %}">Inicio</a>
         <a class="navbar-item {% if request.get_full_path == animals_url %}is-active{% endif %}" id="animals" href="{% url 'animals' %}">Animales</a>
         <a class="navbar-item {% if request.get_full_path == frequentQuestions_url %}is-active{% endif %}" id="frequentQuestions" href="{% url 'frequentQuestions' %}">Preguntas Frecuentes</a>
-        <a class="navbar-item {% if request.get_full_path == help_url %}is-active{% endif %}" id="help" href="{% url 'help' %}">Ayudanos!</a>
+        <a class="navbar-item {% if request.get_full_path == help_url %}is-active{% endif %}" id="help" href="{% url 'help' %}">Ayudanos</a>
         <a class="navbar-item {% if request.get_full_path == contact_url %}is-active{% endif %}" id="contact" href="{% url 'contact' %}">Contacto</a>
+      </div>
+      <div class="navbar-end">
+          
+        <a class="navbar-item fa-2x" href="https://www.facebook.com/"><i class="fab fa-facebook-square"></i></a>
+        <a class="navbar-item fa-2x" href="https://www.instagram.com/?hl=es"><i class="fab fa-instagram "></i></a>
       </div>
     </div>
   </div>

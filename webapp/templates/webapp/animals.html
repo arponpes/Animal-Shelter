@@ -1,9 +1,11 @@
-{% extends 'webapp/base.html' %}{% load static from staticfiles %} {% block content %} {% include 'webapp/_navbar.html' %}
-
+{% extends 'webapp/base.html' %}
+{% load static from staticfiles %}
+{% block content %}
+{% include 'webapp/_navbar.html' %}
 <section class="section margin-top">
   <div class="container">
     <form action="" id="form" method="get">
-      <h1 class="title is-1 center">
+      <h1 class="title center">
         Mascotas!
       </h1>
       <div class="box">
@@ -77,7 +79,6 @@
       {% endfor %}
     </div>
     </div>
-
     {% include 'webapp/_pagination.html' %}
 </section>
 <script src="{% static 'js/filters.js' %}"></script> {% endblock content %}

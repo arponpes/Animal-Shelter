@@ -3,62 +3,42 @@
 {% load widget_tweaks %}
 {% block content %}
 {% include 'webapp/_navbar.html' %}
-
-
 <div class="container">
-  <div class="content">
-    <section class="section">
-      <section class="section">
-        <section class="hero ">
-          <div class="hero-body">
-            <div class="container">
-              <h1 class="title logo">
-                ANIMAL SHELTER
-              </h1>
-            </div>
-          </div>
-        </section>
-        <div>
-        <p>La Protectora de animales destrong <strong> Animal Shelter </strong> es una asociación sin ánimo de lucro fundada en 2018 con la <strong> finalidad primordial
-          de la defensa y protección de los animales </strong> mediante la recogida de perros abandonados, promover su defensa mediante
-          campañas de concienciación, divulgación, y la gestión de nuestro refugio. Nuestra actividad principal es el cuidado,
-          a todos los niveles, de los animales que viven en nuestro refugio para conseguir que todos ellos se sientan queridos
-          y seguros. Aquí vivirán hasta que consigan una familia que les <strong> adopte de forma responsable </strong> y les asegure un futuro
-          feliz y una vida digna.
-        </p>
-      </section>
-  </div>
-</div>
-
-
-
-<div class="container">
-  <section class="section">
-    <h2 class="title is-1">Contacta con nosotros</h2>
-    <h2 class="subtitle">Cualquier duda que tengas, sonbre la adopcion, voluntariado, donaciones...</h2>
+  <section class="section margin-top">
+    <h1 class="title logo">
+      ANIMAL SHELTER
+    </h1>
+    <div class="content is-medium">
+      <p>La Protectora de animales
+        <strong> Animal Shelter </strong> es una asociación sin ánimo de lucro fundada en 2018 con la
+        <strong> finalidad primordial de la defensa y protección de los animales </strong> mediante la recogida de perros abandonados,
+        promover su defensa mediante campañas de concienciación, divulgación, y la gestión de nuestro refugio. Nuestra actividad
+        principal es el cuidado, a todos los niveles, de los animales que viven en nuestro refugio para conseguir que todos
+        ellos se sientan queridos y seguros. Aquí vivirán hasta que consigan una familia que les
+        <strong> adopte de forma responsable </strong> y les asegure un futuro feliz y una vida digna.
+      </p>
+    </div>
+    <h2 class="title">Contacta con nosotros</h2>
+    <div class="content is-medium">
+      <p>Cualquier duda que tengas, so</strong>bre la adopcion, voluntariado, donaciones...</p>
+    </div>
     <form method="post" id="contact-form" class="form" enctype="multipart/form-data">{% csrf_token %}
-
-
       <div class="field {% if form.name.errors %}error{% endif %}">
         <label class="label">Nombre</label>
         {% render_field form.name|add_class:"input" placeholder='Nombre' %} {{ form.name.errors.0 }}
       </div>
-
       <div class="field {% if form.subject.errors %}error{% endif %}">
         <label class="label">Asunto</label>
         {% render_field form.subject|add_class:"input" placeholder='Asunto' %} {{ form.subject.errors.0 }}
       </div>
-
       <div class="field {% if form.email.errors %}error{% endif %}">
         <label class="label">Email</label>
         {% render_field form.email|add_class:"input" placeholder='Email' %} {{ form.email.errors.0 }}
       </div>
-
       <div class="field {% if form.message.errors %}error{% endif %}">
         <label class="label">Mensaje</label>
         {% render_field form.message|add_class:"textarea" placeholder='Mensaje' %} {{ form.message.errors.0 }}
       </div>
-
       <button class="button is-primary" id="btn-send" type="submit">Enviar</button>
     </form>
   </section>
