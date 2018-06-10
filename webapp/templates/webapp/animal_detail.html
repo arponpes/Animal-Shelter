@@ -5,6 +5,9 @@
 {% include 'webapp/_navbar.html' %}
 <section class="section margin-top">
     <div class="container">
+        <h1 class="title">{{animal.name}} {% if animal.state == 'URGENCY' %}
+            <span class="tag is-danger">{{animal.get_state_display}}</span>
+        </h1>
         <div class="columns">
             <div class="column">
                 <figure class="image">
@@ -12,9 +15,6 @@
                 </figure>
             </div>
             <div class="column">
-                <h1 class="title is-1">{{animal.name}} {% if animal.state == 'URGENCY' %}
-                    <span class="tag is-danger">{{animal.get_state_display}}</span>
-                </h1>
                 {% endif %}
                 <div class="content is-medium">
                     <h2 class="subtitle is-3">Datos</h2>
@@ -47,7 +47,9 @@
                         </div>
                     </div>
                 </div>
-                <h2 class="subtitle center">Hablamos sobre {{animal.name}}?</h2>
+                <div class="content is-medium">
+                <p class="subtitle center"><strong>Hablamos sobre {{animal.name}}?</strong></p>
+                </div>
                 <form method="post" id="contact-form" class="form" enctype="multipart/form-data">{% csrf_token %}
                     <div class="field {% if form.name.errors %}error{% endif %}">
                         <label class="label">Nombre</label>

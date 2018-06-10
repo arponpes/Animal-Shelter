@@ -4,11 +4,13 @@
 {% include 'webapp/_navbar.html' %}
 <div class="container">
     <section class="section">
-        <h1 class="title center margin-top is-1">Donaciones</h1>
+        <h1 class="title center margin-top">Donaciones</h1>
         <div class="columns fixed-height is-multiline">
             <div class="column is-4-desktop is-12-tablet">
-                <h1 class="title">Para comida!</h1>
-                <h2 class="subtitle">Nuetros amiguitos tambien necesitan comer y beber</h2>
+                <label class="title">Para comida</label>
+                <div class="content is-medium">
+                <p>Nuetros amiguitos tambien necesitan comer y beber</p>
+            </div>
                 <figure class="image image is-4by3">
                     <img  src='{% static "img/food.jpg" %}' alt="Placeholder image">
                 </figure>
@@ -16,8 +18,10 @@
                 <a href="http://www.paypal.com" class="button is-info is-outlined"> Donar para comida</a>
             </div>
             <div class="column is-4-desktop is-12-tablet">
-                <h1 class="title">Para veterinario!</h1>
-                <h2 class="subtitle">Nuetros amiguitos tambien necesitan ayuda medica</h2>
+                <label class="title">Para veterinario</label>
+                <div class="content is-medium">
+                <p>Nuetros amiguitos tambien necesitan ayuda medica</p>
+                </div>
                 <figure class="image image is-4by3">
                     <img src='{% static "img/vet.jpg" %}' alt="Placeholder image">
                 </figure>
@@ -25,8 +29,10 @@
                 <a href="http://www.paypal.com" class="button is-info is-outlined"> Donar para veterinario</a>
             </div>
             <div class="column is-4-desktop is-12-tablet">
-                <h1 class="title">Para gastos generales!</h1>
-                <h2 class="subtitle">El refugio tiene diferentes gastos para mantenerse abierto.</h2>
+                <label class="title">Para gastos generales</label>
+                <div class="content is-medium">
+                <p>El refugio tiene diferentes gastos para mantenerse abierto.</p>
+                </div>     
                 <figure class="image image is-4by3">
                     <img src='{% static "img/cat.jpeg" %}' alt="Placeholder image">
                 </figure>
@@ -34,9 +40,9 @@
                 <a href="http://www.paypal.com" class="button is-info is-outlined"> Donar para gastos generales</a>
             </div>
         </div>
-        <h1 class="title center margin-top is-1">Voluntarios</h1>
+        <h1 class="title center margin-top">Voluntarios</h1>
         <div class="column is-half-desktop">
-            <div class="content is-large">
+            <div class="content is-medium">
             <p>Si estas interesado en colaborar con nosotros de foma voluntario estariamos muy agradecidos. Puedes ponerte en contacto
                 con nosotros en la pestanha de
                 <a href="{% url 'contact' %}"> contacto.</a>

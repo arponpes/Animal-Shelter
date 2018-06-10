@@ -18,7 +18,7 @@
 <section class="hero is-small is-primary is-bold frase">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title center is-2">
+      <h2 class="title center">
         Encuéntrame
       </h2>
     </div>
@@ -28,22 +28,25 @@
   <div class="container">
     <form action="{% url 'animals' %}" method="get">
       <div class="box">
-          <div class="column is-half-desktop">
-              <h2 class="subtitle"><strong>¿Cómo te gustaría que fuera tu nuevo compañero de viajes</strong>? Selecciona entre algunos de los filtros y te mostraremos el que
-              más se adapte a tus necesidades.</h2>
-            </div>
-      <div class="contenedor">
-            <div class="item">
+        <div class="column is-half-desktop">
+          <div class="content is-medium">
+            <p class="subtitle">
+              <strong>¿Cómo te gustaría que fuera tu nuevo compañero de viajes?</strong> Selecciona entre algunos de los filtros
+              y te mostraremos el que más se adapte a tus necesidades.</p>
+          </div>
+        </div>
+        <div class="contenedor">
+          <div class="item">
             {% include 'filter/_filter.html' with field=filter.form.fields.animal_type name='animal_type' title='Animal' selected=request.GET.animal_type%}
           </div>
           <div class="item">
             {% include 'filter/_filter.html' with field=filter.form.fields.sex name='sex' title='Sexo' selected=request.GET.sex %}
           </div>
           <div class="item">
-            {% include 'filter/_filter.html' with field=filter.form.fields.size name='size' title='Tamaño' selected=request.GET.size %}
+            {% include 'filter/_filter.html' with field=filter.form.fields.size name='size' title='Tamaño' selected=request.GET.size%}
           </div>
           <div class="item">
-              {% include 'filter/_filter.html' with field=filter.form.fields.is_puppy name='is_puppy' title='Edad' selected=request.GET.is_puppy %}
+            {% include 'filter/_filter.html' with field=filter.form.fields.is_puppy name='is_puppy' title='Edad' selected=request.GET.is_puppy%}
           </div>
         </div>
         <div class="center">
@@ -51,66 +54,69 @@
         </div>
       </div>
     </form>
-
-    <h2 class="title is-1 center margin-top">
+    <h2 class="title center margin-top">
       Urge adopción o acogida
     </h2>
     <div class="column is-half-desktop">
-      <h2 class="subtitle">Algunos de nuestros amigos <strong> necesitan un hogar de foma urgente</strong> debido a problemas de adaptacion o falta espacio en el refugio.</h2>
-    </div>
-    <div class='columns is-multiline fixed-height margin-top'>
-      {% for animal in animals %}
-      <div class='column is-4-desktop is-half-tablet'>
-          <a class="" href="{% url 'animal_detail' slug=animal.slug %}">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-                <img src="{{ animal.image.crop.470x350 }}" />                
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media-content">
-              <a class="title is-4" href="{% url 'animal_detail' slug=animal.slug %}">
-                {{animal.name}} {% if animal.state == 'URGENCY' %}
-                <span class="tag is-danger">{{animal.get_state_display}}</span>
-                {% endif %}
-              </a>
-            </div>
-            <div class="content">
-              <p>{{animal.description|truncatechars_html:175 }}</p>
-            </div>
-            <div class="columns is-mobile">
-              <div class="column is-half is-half-mobile">
-                <Strong>
-                  <label>Mascota:</label>
-                </Strong>
-                {{animal.get_animal_type_display}}
-                <br>
-                <Strong>
-                  <label>Sexo:</label>
-                </Strong>
-                {{animal.get_sex_display}}
-                <br>
-                  <Strong>
-                  <label>Tamaño:</label>
-                  </Strong>
-                  {{animal.get_size_display}}
-                <br>
-                <br>
-                
-              </div>
-              <div class="column is-half is-half-mobile">
-                <strong>
-                  <p>Fecha nacimiento</p>
-                </strong>
-                <time>{{animal.birth_date}}</time>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="content is-medium">
+        <p class="subtitle">Algunos de nuestros amigos
+          <strong> necesitan un hogar de foma urgente</strong> debido a problemas de adaptacion o falta espacio en el refugio.</p>
       </div>
-    </a>
-      {% endfor %}
+    </div>
+    <div class="margin-top">
+      <div class='columns is-multiline fixed-height'>
+        {% for animal in animals %}
+        <div class='column is-4-desktop is-half-tablet'>
+          <a class="" href="{% url 'animal_detail' slug=animal.slug %}">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="{{ animal.image.crop.470x350 }}" />
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media-content">
+                  <a class="title is-4" href="{% url 'animal_detail' slug=animal.slug %}">
+                    {{animal.name}} {% if animal.state == 'URGENCY' %}
+                    <span class="tag is-danger">{{animal.get_state_display}}</span>
+                    {% endif %}
+                  </a>
+                </div>
+                <div class="content">
+                  <p>{{animal.description|truncatechars_html:175 }}</p>
+                </div>
+                <div class="columns is-mobile">
+                  <div class="column is-half is-half-mobile">
+                    <Strong>
+                      <label>Mascota:</label>
+                    </Strong>
+                    {{animal.get_animal_type_display}}
+                    <br>
+                    <Strong>
+                      <label>Sexo:</label>
+                    </Strong>
+                    {{animal.get_sex_display}}
+                    <br>
+                    <Strong>
+                      <label>Tamaño:</label>
+                    </Strong>
+                    {{animal.get_size_display}}
+                    <br>
+                    <br>
+                  </div>
+                  <div class="column is-half is-half-mobile">
+                    <strong>
+                      <p>Fecha nacimiento</p>
+                    </strong>
+                    <time>{{animal.birth_date}}</time>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        </a>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </section>

@@ -1,16 +1,13 @@
-$button-color:#FC4A1A;
-
-// @import "../../node_modules/bulma/sass/utilities/initial-variables";
-// @import "../../node_modules/bulma/sass/utilities/functions";
-// @import "../../node_modules/bulma/sass/utilities/derived-variables";
-// @import "../../node_modules/bulma/sass/layout/footer.sass";
-// @import "../../node_modules/bulma/bulma";
 html {
     overflow-y: auto;
 }
 
+.logo-font {
+    font-family: 'Luckiest Guy', cursive;
+}
+
 .logo {
-    color: #4abdac;
+    color: #3CC47C;
     font-family: 'Luckiest Guy', cursive;
 }
 
@@ -94,10 +91,14 @@ $break-large: 1200px;
 .margin-top {
     margin-top: 4rem;
 }
+.margin-top-less{
+    margin-top: 2rem;
+}
 
 .faq {
     display: none;
 }
+
 .contenedor {
     padding: 0;
     margin: 0;
@@ -119,29 +120,23 @@ $break-large: 1200px;
     margin: 10px;
 }
 
-
 @import "../../node_modules/bulma/sass/utilities/initial-variables";
 @import "../../node_modules/bulma/sass/utilities/functions";
-
 // 2. Set your own initial variables
 // Update blue
-$fresh: #4abdac;
+$fresh: #3CC47C;
 // Add pink and its invert
 $vermillion: #FC4A1A;
 $sunshine: #F7B733;
 $clean: #DFDCE3;
 // Add a serif family
-
 // 3. Set the derived variables
 // Use the new pink as the primary color
 $primary: $fresh;
 // Use the existing orange as the danger color
 // Use the new serif family
-
-$light: $clean;
-
+$light: $fresh;
 // 5. Add new color variables to the color map.
 @import "../../node_modules/bulma/sass/utilities/derived-variables";
-
 // 6. Import the rest of Bulma
 @import "../../node_modules/bulma/bulma";
