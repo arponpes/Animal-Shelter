@@ -17,6 +17,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 * Python
+* Npm
 * Pipenv
 * Postgres
 
@@ -29,6 +30,7 @@ pipenv install --dev
 pytohn manage.py makemigrations
 pytohn manage.py migrate
 python manage.py collectstatic
+npm install bulma
 pytohn manage.py runserver
 ```
 
@@ -59,5 +61,3 @@ This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENS
 * [heroku](https://devcenter.heroku.com/)
 * [django-versatileimagefield](https://django-versatileimagefield.readthedocs.io/en/latest/)
 * [factory-boy](http://factoryboy.readthedocs.io/en/latest/)
-
-
