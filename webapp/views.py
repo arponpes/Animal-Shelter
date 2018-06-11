@@ -11,15 +11,23 @@ from django_filters.views import FilterView
 
 from core import filters, forms
 from core.models import Animal
+from webapp import quotes
+import random
 
 
 class HomeView(FilterView):
     model = Animal
     template_name = 'webapp/home.html'
-    queryset = (Animal.objects.filter(state='URGENCY')
-                .order_by('-state', 'entry_date'))
     filterset_class = filters.AnimalFilter
-    context_object_name = 'animals'
+
+    def get_context_data(self, **kwargs):
+        context = super(HomeView, self).get_context_data(**kwargs)
+        context.update({
+            'quote': (random.choice(list(quotes.quotes.items()))),
+            'animals': (Animal.objects.filter(state='URGENCY')
+                        .order_by('-state', 'entry_date')),
+        })
+        return context
 
 
 class AnimalsView(FilterView):
