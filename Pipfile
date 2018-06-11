@@ -15,6 +15,7 @@ django-filter = "*"
 dj-email-url = "*"
 whitenoise = "*"
 django-storages = "*"
+djangorestframework = "*"
 django-widget-tweaks = "*"
 django-versatileimagefield = "*"
 django-autoslug = {git = "https://github.com/iplweb/django-autoslug-iplweb.git", ref = "be379b83d90725b882c2ed38c9279167e69b6c7f"}

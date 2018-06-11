@@ -1,13 +1,14 @@
 import os
+
+from django.conf import settings
 from django.db import models
 from django.urls import reverse
 
 from autoslug import AutoSlugField
 from versatileimagefield.fields import VersatileImageField
 from versatileimagefield.placeholder import OnDiscPlaceholderImage
-from django.conf import settings
-from core.services import generate_unique_file_path
 
+from core.services import generate_unique_file_path
 
 NO_IMAGE_PLACEHOLDER = OnDiscPlaceholderImage(
     path=os.path.join(settings.PROJECT_DIR,
@@ -47,22 +48,46 @@ class Animal(TimeStampleModel):
     name = models.CharField('Nombre', max_length=50)
     birth_date = models.DateField('Fecha de nacimiento')
     entry_date = models.DateField('Fecha de entrada')
-    departure_date = models.DateField('Fecha de salida', blank=True, null=True)
-    description = models.TextField('Descripcion', blank=True, null=True)
-    image = VersatileImageField('Imagen', null=True, blank=True,
-                                upload_to=generate_unique_file_path,
-                                placeholder_image=NO_IMAGE_PLACEHOLDER)
-    size = models.CharField('Tamaño',
-                            max_length=50,
-                            choices=SIZE_CHOICES, default='MEDIUM')
-    animal_type = models.CharField('Tipo',
-                                   max_length=50,
-                                   choices=ANIMAL_TYPE_CHOICES, default='DOG')
-    sex = models.CharField('Sexo',
-                           max_length=50, choices=SEX_CHOICES, default='MALE')
-    state = models.CharField('Estado',
-                             max_length=50,
-                             choices=STATE_CHOICES, default='UNAVAILABLE')
+    departure_date = models.DateField(
+        'Fecha de salida',
+        blank=True,
+        null=True
+        )
+    description = models.TextField(
+        'Descripcion',
+        blank=True,
+        null=True
+        )
+    image = VersatileImageField(
+        'Imagen',
+        null=True,
+        blank=True,
+        upload_to=generate_unique_file_path,
+        placeholder_image=NO_IMAGE_PLACEHOLDER
+        )
+    size = models.CharField(
+        'Tamaño',
+        max_length=50,
+        choices=SIZE_CHOICES, default='MEDIUM'
+        )
+    animal_type = models.CharField(
+        'Tipo',
+        max_length=50,
+        choices=ANIMAL_TYPE_CHOICES,
+        default='DOG'
+        )
+    sex = models.CharField(
+        'Sexo',
+        max_length=50,
+        choices=SEX_CHOICES,
+        default='MALE'
+        )
+    state = models.CharField(
+        'Estado',
+        max_length=50,
+        choices=STATE_CHOICES,
+        default='UNAVAILABLE'
+        )
     slug = AutoSlugField(populate_from='name', unique=True)
 
     def __str__(self):
