@@ -5,12 +5,16 @@
     <div class="hero-body">
         {% include "webapp/_message.html" %}
       <div class="container">
+      {% for q in quote %}
+        
+      
         <h1 class="title">
-          “Hasta que no hayas amado a un animal, parte de tu alma estará dormida”.
+          {{q}} 
         </h1>
+        
         <h2 class="subtitle">
-          Anatole France.
         </h2>
+      {% endfor %}
       </div>
     </div>
   </section>
