@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'core',
     'webapp',
+    'api',
     'django_filters',
     'storages',
     'versatileimagefield',
