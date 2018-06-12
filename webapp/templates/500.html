@@ -1,10 +1,12 @@
 {% extends 'webapp/base.html' %}
 {% block content %}
 {% include 'webapp/_navbar.html' %}
-<div class="container center margin-top">
-  <h1 class="title">Ups...Error 500</h1>
-  <a class="is-disabled error-icon " href="{% url 'home' %}">
-        <i class="fas fa-undo-alt "></i>
-    </a>
+<div class="container center">
+    <div class="margin-top">
+        <h1 class="title">Ups...Error 500</h1>
+        <a class="is-disabled error-icon " href="{% url 'home' %}">
+            <i class="fas fa-undo-alt "></i>
+        </a>
+    </div>
 </div>
 {% endblock content %}
