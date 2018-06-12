@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "[![Coverage Status](https://coveralls.io/repos/github/arponpes/Animal-Shelter/badge.svg?branch=feat%2Ftest)](https://coveralls.io/github/arponpes/Animal-Shelter?branch=feat%2Ftest) [![Build Status](https://travis-ci.org/arponpes/Animal-Shelter.svg?branch=master)](https://travis-ci.org/arponpes/Animal-Shelter)",
   "main": "index.js",
+  "engines": {
+    "node": "8.9.4",
+    "npm": "5.6.0"
+  },
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "css": "sass --watch static/css/styles.scss:static/css/styles.css"
+    "build": "node-sass --include-path scss static/css/styles.scss static/css/styles.css",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -22,5 +27,8 @@
   "homepage": "https://github.com/arponpes/Animal-Shelter#readme",
   "devDependencies": {
     "bulma": "^0.7.1"
+  },
+  "dependencies": {
+    "node-sass": "^4.9.0"
   }
 }
