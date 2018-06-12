@@ -8,7 +8,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "css": "sass --watch static/css/styles.scss:static/css/styles.css"
+    "css": "sass --watch static/css/styles.scss:static/css/styles.css",
+    "build": "sass static/css/styles.scss:static/css/styles.css",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
