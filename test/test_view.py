@@ -42,7 +42,7 @@ def test_contact_form():
     form_data = {'subject': 'Duda',
                  'email': 'duda@gmail.com',
                  'name': 'Juan',
-                 'message': 'Estoy comprobando que el formato'}
+                 'message': 'Estoy haciendo cosas'}
 
     form = forms.ContactForm(data=form_data)
 

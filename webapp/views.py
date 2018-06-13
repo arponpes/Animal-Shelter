@@ -1,3 +1,4 @@
+import random
 from datetime import datetime as dt
 
 from django.contrib import messages
@@ -12,7 +13,6 @@ from django_filters.views import FilterView
 from core import filters, forms
 from core.models import Animal
 from webapp import quotes
-import random
 
 
 class HomeView(FilterView):

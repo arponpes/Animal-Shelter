@@ -9,16 +9,10 @@ class AnimalAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     readonly_fields = ('slug', 'created', 'modified')
 
-# class AnimalInline(admin.StackedInline):
-#     model = Animal
-
 
 class PersonAdmin(admin.ModelAdmin):
     list_display = ('name', 'last_name', 'address', 'phone', 'email')
     search_fields = ('name', 'phone')
-    # inlines = [
-    #     AnimalInline,
-    # ]
 
 
 class AdopterFamilyAdmin(admin.ModelAdmin):

@@ -96,6 +96,10 @@ class Animal(TimeStampleModel):
     def get_absolute_url(self):
         return reverse('animal_detail', args=[self.slug])
 
+    class Meta:
+        verbose_name = 'Mascota'
+        verbose_name_plural = 'Mascotas'
+
 
 class Person(TimeStampleModel):
     name = models.CharField('Nombre', max_length=50)
@@ -107,10 +111,18 @@ class Person(TimeStampleModel):
     def __str__(self):
         return f'{self.name}'
 
+    class Meta:
+        verbose_name = 'Persona'
+        verbose_name_plural = 'Personas'
+
 
 class Foster(TimeStampleModel):
     animal = models.ForeignKey('Animal', on_delete=models.CASCADE)
     person = models.ForeignKey('Person', on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Acogida'
+        verbose_name_plural = 'Acogidas'
 
 
 class AdopterFamily(TimeStampleModel):
@@ -121,3 +133,7 @@ class AdopterFamily(TimeStampleModel):
         super().save(*args, **kwargs)
         self.animal.state = 'UNAVAILABLE'
         self.animal.save()
+
+    class Meta:
+        verbose_name = 'Adopcion'
+        verbose_name_plural = 'Adopciones'
