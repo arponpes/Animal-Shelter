@@ -1,2 +1,2 @@
 [flake8]
- exclude = .git,__pycache__,.venv,manage.py,*/migrations/*, settings
+ exclude = .git,__pycache__,.venv,manage.py,*/migrations/*, settings, node_modules
