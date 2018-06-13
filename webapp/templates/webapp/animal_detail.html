@@ -5,8 +5,10 @@
 {% include 'webapp/_navbar.html' %}
 <section class="section margin-top">
     <div class="container">
-        <h1 class="title">{{animal.name}} {% if animal.state == 'URGENCY' %}
+        <h1 class="title">
+            {{animal.name}} {% if animal.state == 'URGENCY' %}
             <span class="tag is-danger">{{animal.get_state_display}}</span>
+            {% endif %}
         </h1>
         <div class="columns">
             <div class="column">
@@ -15,7 +17,6 @@
                 </figure>
             </div>
             <div class="column">
-                {% endif %}
                 <div class="content is-medium">
                     <h2 class="subtitle is-3">Datos</h2>
                     <div class="columns">
